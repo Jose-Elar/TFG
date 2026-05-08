@@ -16,9 +16,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Interact",
+                    "name": "Interact_Button",
                     "type": "Button",
                     "id": "c60003bf-abd3-4b8e-8631-8c9f0b7ea118",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact_Bridge",
+                    "type": "Button",
+                    "id": "10edd382-2a0a-4b73-9fc2-001ef25aeb55",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -88,7 +97,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interact",
+                    "action": "Interact_Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d10e69e0-f4b7-44ee-8c2f-761197a31fa7",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact_Bridge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

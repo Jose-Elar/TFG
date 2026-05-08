@@ -10,6 +10,7 @@ TagManager:
   - Puzzle_Drone
   - Assist_Drone
   - Target
+  - Button1
   layers:
   - Default
   - TransparentFX

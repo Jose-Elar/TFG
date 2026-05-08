@@ -31,7 +31,7 @@ public class DroneMovement : MonoBehaviour
 
         mainDrone_Actions.Drone.Movement.performed += Movement_performed;
         mainDrone_Actions.Drone.Movement.canceled += Movement_canceled;
-        mainDrone_Actions.Drone.Interact.performed += Interact_performed;
+        mainDrone_Actions.Drone.Interact_Button.performed += Interact_performed;
     }
 
     private void Interact_performed(InputAction.CallbackContext context)

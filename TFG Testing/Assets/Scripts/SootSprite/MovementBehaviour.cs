@@ -16,19 +16,9 @@ public class MovementBehaviour : MonoBehaviour
     private bool hasReachedItem = false;
     private bool endSequenceStarted = false;
 
-    [SerializeField] private CameraController cameraController;
     private bool triggered = false;
 
-    void OnBecameInvisible()
-    {
-        if (triggered) return;
 
-        if (CompareTag("Soot_Sprite"))
-        {
-            triggered = true;
-            cameraController.StartCameraSequence();
-        }
-    }
 
     void Awake()
     {
@@ -39,12 +29,19 @@ public class MovementBehaviour : MonoBehaviour
     void Update()
     {
         if (hasReachedItem) return;
-
         if (!itemDetected)
             CheckRaycast();
 
         if (itemDetected)
             MoveTowardsItem();
+    }
+
+    private void OnsionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Button1")
+        {
+            
+        }
     }
 
     private void CheckRaycast()

@@ -102,9 +102,18 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Interact"",
+                    ""name"": ""Interact_Button"",
                     ""type"": ""Button"",
                     ""id"": ""c60003bf-abd3-4b8e-8631-8c9f0b7ea118"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact_Bridge"",
+                    ""type"": ""Button"",
+                    ""id"": ""10edd382-2a0a-4b73-9fc2-001ef25aeb55"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -174,7 +183,18 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Interact"",
+                    ""action"": ""Interact_Button"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d10e69e0-f4b7-44ee-8c2f-761197a31fa7"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact_Bridge"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -186,7 +206,8 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
         // Drone
         m_Drone = asset.FindActionMap("Drone", throwIfNotFound: true);
         m_Drone_Movement = m_Drone.FindAction("Movement", throwIfNotFound: true);
-        m_Drone_Interact = m_Drone.FindAction("Interact", throwIfNotFound: true);
+        m_Drone_Interact_Button = m_Drone.FindAction("Interact_Button", throwIfNotFound: true);
+        m_Drone_Interact_Bridge = m_Drone.FindAction("Interact_Bridge", throwIfNotFound: true);
     }
 
     ~@MainDrone_Actions()
@@ -268,7 +289,8 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Drone;
     private List<IDroneActions> m_DroneActionsCallbackInterfaces = new List<IDroneActions>();
     private readonly InputAction m_Drone_Movement;
-    private readonly InputAction m_Drone_Interact;
+    private readonly InputAction m_Drone_Interact_Button;
+    private readonly InputAction m_Drone_Interact_Bridge;
     /// <summary>
     /// Provides access to input actions defined in input action map "Drone".
     /// </summary>
@@ -285,9 +307,13 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Movement => m_Wrapper.m_Drone_Movement;
         /// <summary>
-        /// Provides access to the underlying input action "Drone/Interact".
+        /// Provides access to the underlying input action "Drone/Interact_Button".
         /// </summary>
-        public InputAction @Interact => m_Wrapper.m_Drone_Interact;
+        public InputAction @Interact_Button => m_Wrapper.m_Drone_Interact_Button;
+        /// <summary>
+        /// Provides access to the underlying input action "Drone/Interact_Bridge".
+        /// </summary>
+        public InputAction @Interact_Bridge => m_Wrapper.m_Drone_Interact_Bridge;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -317,9 +343,12 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
+            @Interact_Button.started += instance.OnInteract_Button;
+            @Interact_Button.performed += instance.OnInteract_Button;
+            @Interact_Button.canceled += instance.OnInteract_Button;
+            @Interact_Bridge.started += instance.OnInteract_Bridge;
+            @Interact_Bridge.performed += instance.OnInteract_Bridge;
+            @Interact_Bridge.canceled += instance.OnInteract_Bridge;
         }
 
         /// <summary>
@@ -334,9 +363,12 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
+            @Interact_Button.started -= instance.OnInteract_Button;
+            @Interact_Button.performed -= instance.OnInteract_Button;
+            @Interact_Button.canceled -= instance.OnInteract_Button;
+            @Interact_Bridge.started -= instance.OnInteract_Bridge;
+            @Interact_Bridge.performed -= instance.OnInteract_Bridge;
+            @Interact_Bridge.canceled -= instance.OnInteract_Bridge;
         }
 
         /// <summary>
@@ -385,11 +417,18 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMovement(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Interact_Button" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnInteract(InputAction.CallbackContext context);
+        void OnInteract_Button(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Interact_Bridge" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteract_Bridge(InputAction.CallbackContext context);
     }
 }
