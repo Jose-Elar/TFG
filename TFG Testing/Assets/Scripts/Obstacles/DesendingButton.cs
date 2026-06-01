@@ -3,7 +3,7 @@ using UnityEngine;
 public class DescendingButton : MonoBehaviour
 {
     [Header("Movement")]
-    public float descendSpeed = 2f;
+    public float descendSpeed;
  
     public bool stopWhenExits = true;
  
@@ -21,7 +21,7 @@ public class DescendingButton : MonoBehaviour
         if (other.CompareTag("Soot_Sprite"))
         {
             _isDescending = true;
-            Debug.Log("[DescendOnSootSprite] Soot_Sprite entered — descending.");
+   
         }
     }
  
@@ -30,7 +30,6 @@ public class DescendingButton : MonoBehaviour
         if (stopWhenExits && other.CompareTag("Soot_Sprite"))
         {
             _isDescending = false;
-            Debug.Log("[DescendOnSootSprite] Soot_Sprite exited — stopped.");
         }
     }
 }

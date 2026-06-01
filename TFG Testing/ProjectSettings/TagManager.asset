@@ -11,6 +11,10 @@ TagManager:
   - Assist_Drone
   - Target
   - Button1
+  - JumpHole
+  - Enemy
+  - Proyectile
+  - PickUp
   layers:
   - Default
   - TransparentFX
@@ -22,8 +26,8 @@ TagManager:
   - Ground
   - Soot_Sprite
   - Assit_Drones
-  - 
-  - 
+  - JumpHole
+  - Obstacle
   - 
   - 
   - 

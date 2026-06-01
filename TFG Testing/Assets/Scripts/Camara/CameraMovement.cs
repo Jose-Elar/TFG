@@ -13,24 +13,26 @@ public class CameraMovement : MonoBehaviour
  
     [Header("Pan Settings")]
     public float delayBeforePan = 1.5f;
-    public float panDistance = 10f;
+    [Tooltip("How far the camera pans horizontally.")]
+    public float panDistanceX = 10f;
+    [Tooltip("How far the camera pans vertically — keep this smaller than X.")]
+    public float panDistanceY = 3f;
     public float panSpeed = 6f;
  
     [Header("Edge Padding")]
     public float edgePadding = 0.5f;
  
     // ── internals ──────────────────────────────────────────────────────────
-    private Camera      _cam;
-    private bool        _isPanning       = false;
-    private bool        _waitingToStart  = false;
-    private Vector3     _panTarget;          // world-space destination of the camera
-    private Coroutine   _delayCoroutine;
+    private Camera    _cam;
+    private bool      _isPanning      = false;
+    private bool      _waitingToStart = false;
+    private Vector3   _panTarget;
+    private Coroutine _delayCoroutine;
  
     // ── Unity lifecycle ────────────────────────────────────────────────────
     void Awake()
     {
         _cam = GetComponent<Camera>();
- 
     }
  
     void Update()
@@ -41,7 +43,6 @@ public class CameraMovement : MonoBehaviour
  
         if (exitDir != Vector2.zero)
         {
-            // Target just left the screen — freeze the game and start the delay
             PauseGame();
             _waitingToStart = true;
             _delayCoroutine = StartCoroutine(DelayThenPan(exitDir));
@@ -52,14 +53,12 @@ public class CameraMovement : MonoBehaviour
     {
         if (!_isPanning) return;
  
-        // Camera moves independently of Time.timeScale using unscaled delta time
         transform.position = Vector3.MoveTowards(
             transform.position,
             _panTarget,
             panSpeed * Time.unscaledDeltaTime
         );
  
-        // Arrived?
         if (Vector3.Distance(transform.position, _panTarget) < 0.01f)
         {
             transform.position = _panTarget;
@@ -70,12 +69,8 @@ public class CameraMovement : MonoBehaviour
  
     // ── helpers ────────────────────────────────────────────────────────────
  
-    /// Returns the 2-D direction in which the target exited the camera view,
-    /// or Vector2.zero if the target is still on-screen.
-    /// Diagonal exits (e.g. top-right corner) return a diagonal direction.
     Vector2 GetExitDirection()
     {
-        // Camera half-extents in world space
         float halfH = _cam.orthographicSize + edgePadding;
         float halfW = halfH * _cam.aspect   + edgePadding;
  
@@ -94,18 +89,14 @@ public class CameraMovement : MonoBehaviour
         return new Vector2(exitX, exitY);
     }
  
-    /// Waits <see cref="delayBeforePan"/> seconds, then kicks off the pan.
-    /// While waiting, if the target returns to view the pan is cancelled.
     IEnumerator DelayThenPan(Vector2 exitDir)
     {
         float elapsed = 0f;
  
-        // Use unscaled time so the delay ticks while the game is paused
         while (elapsed < delayBeforePan)
         {
             elapsed += Time.unscaledDeltaTime;
  
-            // If the target came back on-screen during the delay, cancel
             if (GetExitDirection() == Vector2.zero)
             {
                 _waitingToStart = false;
@@ -116,13 +107,30 @@ public class CameraMovement : MonoBehaviour
             yield return null;
         }
  
-        // Build the pan destination (keep the Z axis of the camera unchanged)
-        _panTarget = transform.position
-                   + new Vector3(exitDir.x, exitDir.y, 0f) * panDistance;
+        // Build the pan destination based on where the character actually is
+        // so one pan covers the exact distance needed regardless of axis
+        Vector3 targetPos  = target.position;
+        Vector3 camPos     = transform.position;
+ 
+        float destinationX = camPos.x + exitDir.x * panDistanceX;
+ 
+        float destinationY;
+        if (exitDir.y != 0f)
+        {
+            // Offset a few units in the direction of travel so the character
+            // isn't at the very edge of the screen after the pan
+            // exitDir.y is -1 (falling down) or +1 (going up)
+            destinationY = targetPos.y + exitDir.y * panDistanceY;
+        }
+        else
+        {
+            destinationY = camPos.y; // no vertical exit — keep current Y
+        }
+ 
+        _panTarget = new Vector3(destinationX, destinationY, camPos.z);
  
         _waitingToStart = false;
         _isPanning      = true;
-        // Game stays paused — ResumeGame() is called once the pan finishes
     }
  
     // ── pause / resume ─────────────────────────────────────────────────────
@@ -161,3 +169,4 @@ public class CameraMovement : MonoBehaviour
     }
 #endif
 }
+ 

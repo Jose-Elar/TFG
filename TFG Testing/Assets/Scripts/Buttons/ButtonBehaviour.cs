@@ -5,7 +5,6 @@ public class ButtonBehaviour : MonoBehaviour
     public event System.Action OnButtonActivated;
     public event System.Action OnButtonPressed;
 
-    public HUDScript hud;
 
     [Header("Visual")]
     [SerializeField] private SpriteRenderer buttonSprite;
@@ -23,7 +22,6 @@ public class ButtonBehaviour : MonoBehaviour
         if(isActivated) return;
 
         OnButtonPressed?.Invoke();
-        hud.pressedButton();
     }
 
     // Called by ButtonDrone when it arrives
@@ -40,7 +38,6 @@ public class ButtonBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Main_Drone"))
         {
             droneInRange = true;
-            hud.SetCanPressButton(true);
             collision.GetComponent<DroneMovement>()?.SetNearbyButton(this);
         }
 
@@ -56,7 +53,6 @@ public class ButtonBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Main_Drone"))
         {
             droneInRange = false;
-            hud.SetCanPressButton(false);
             collision.GetComponent<DroneMovement>()?.SetNearbyButton(null);
         }
 

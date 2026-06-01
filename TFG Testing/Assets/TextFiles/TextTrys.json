@@ -1,0 +1,20 @@
+{
+  "dialogues": [
+    {
+      "id": "intro_message",
+      "speaker": "Soot Sprite",
+      "lines": [
+        "We need to cross the bridge.",
+        "The drone can help us get there."
+      ]
+    },
+    {
+      "id": "bridge_finished",
+      "speaker": "Soot Sprite",
+      "lines": [
+        "We made it.",
+        "Let's continue."
+      ]
+    }
+  ]
+}
