@@ -17,8 +17,11 @@ public class ParallaxLayer : MonoBehaviour
     void LateUpdate()
     {
         Vector3 delta = cam.position - lastCamPos;
-        transform.position += new Vector3(delta.x * parallaxStrength, 
-                                          delta.y * parallaxStrength, 0);
+        transform.position += new Vector3(
+            delta.x * parallaxStrength,
+            delta.y,
+            0
+        );
         lastCamPos = cam.position;
     }
 }

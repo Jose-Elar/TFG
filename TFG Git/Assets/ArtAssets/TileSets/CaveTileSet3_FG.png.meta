@@ -1,154 +1,145 @@
 fileFormatVersion: 2
-guid: dff31e752e75bb34e947fc44b469cc27
+guid: 5bfec119f1289f6438a460c2a8506918
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2181719163942302175
-    second: CaveG_0
+      213: -6763514801004313633
+    second: foreground _0
   - first:
-      213: 5608987526200471133
-    second: CaveG_1
+      213: -1374257862082609496
+    second: foreground _1
   - first:
-      213: 896807538518130725
-    second: CaveG_2
+      213: 9218606772244905300
+    second: foreground _2
   - first:
-      213: -4122117360914768787
-    second: CaveG_3
+      213: -4825035372854261377
+    second: foreground _3
   - first:
-      213: -6777232694041817515
-    second: CaveG_4
+      213: 4946924060223848267
+    second: foreground _4
   - first:
-      213: -6052143420493889883
-    second: CaveG_5
+      213: 2944847861811785
+    second: foreground _5
   - first:
-      213: -8138851753846787274
-    second: CaveG_6
+      213: -1623757653579789989
+    second: foreground _6
   - first:
-      213: 5002629915987087418
-    second: CaveG_7
+      213: -8747580231039806567
+    second: foreground _7
   - first:
-      213: 4393714329352064085
-    second: CaveG_8
+      213: 5738657483573864146
+    second: foreground _8
   - first:
-      213: -7272034378987333297
-    second: CaveG_9
+      213: 7757943225700001202
+    second: foreground _9
   - first:
-      213: -3830591084055899492
-    second: CaveG_10
+      213: 5355230706937392196
+    second: foreground _10
   - first:
-      213: -2358090117118936198
-    second: CaveG_11
+      213: 4952834295709998351
+    second: foreground _11
   - first:
-      213: 7974606125093482974
-    second: CaveG_12
+      213: 8660394025476612598
+    second: foreground _12
   - first:
-      213: 7012966906041031093
-    second: CaveG_13
+      213: -4143225761143369587
+    second: foreground _13
   - first:
-      213: -6059340853916436927
-    second: CaveG_14
+      213: -3321948555221466711
+    second: foreground _14
   - first:
-      213: 826637128764103996
-    second: CaveG_15
+      213: 8795095507321817064
+    second: foreground _15
   - first:
-      213: -3583166103602733012
-    second: CaveG_16
+      213: -8527674740927259234
+    second: foreground _16
   - first:
-      213: -3524030904366166772
-    second: CaveG_17
+      213: 5579007726041662257
+    second: foreground _17
   - first:
-      213: -9056718533493661196
-    second: CaveG_18
+      213: -5988431282888355233
+    second: foreground _18
   - first:
-      213: 2720655197321966718
-    second: CaveG_19
+      213: -3423544874880511725
+    second: foreground _19
   - first:
-      213: -3754642597460150446
-    second: CaveG_20
+      213: 5367849078627399421
+    second: foreground _20
   - first:
-      213: 3633106824258539127
-    second: CaveG_21
+      213: -3042448068914958840
+    second: foreground _21
   - first:
-      213: -2781063573201822964
-    second: CaveG_22
+      213: 6529873436694336056
+    second: foreground _22
   - first:
-      213: -348001144844918671
-    second: CaveG_23
+      213: -3349489182325117951
+    second: foreground _23
   - first:
-      213: -5228196605303058169
-    second: CaveG_24
+      213: -3886490596394708004
+    second: foreground _24
   - first:
-      213: -8421034948830821980
-    second: CaveG_25
+      213: -4513630175878223729
+    second: foreground _25
   - first:
-      213: 8962643394240212701
-    second: CaveG_26
+      213: 5228037229185466095
+    second: foreground _26
   - first:
-      213: -7326582794362595153
-    second: CaveG_27
+      213: 3624338873350948530
+    second: foreground _27
   - first:
-      213: -6719752175230444096
-    second: CaveG_28
+      213: -7168163978342956385
+    second: foreground _28
   - first:
-      213: -5165170460490929878
-    second: CaveG_29
+      213: -6159338113779091830
+    second: foreground _29
   - first:
-      213: -3227667360852051326
-    second: CaveG_30
+      213: 2106059503573056264
+    second: foreground _30
   - first:
-      213: -2966413248842114005
-    second: CaveG_31
+      213: -449023507193718132
+    second: foreground _31
   - first:
-      213: 6946853498174235137
-    second: CaveG_32
+      213: -1485881469981217839
+    second: foreground _32
   - first:
-      213: 3506597217381328291
-    second: CaveG_33
+      213: 1724206503736259345
+    second: foreground _33
   - first:
-      213: -6040226337748620954
-    second: CaveG_34
+      213: 237880040827184861
+    second: foreground _34
   - first:
-      213: 2322737211967544086
-    second: CaveG_35
+      213: -8458506623443554901
+    second: foreground _35
   - first:
-      213: -7292630893278683830
-    second: CaveG_36
+      213: 4103855711235996598
+    second: foreground _36
   - first:
-      213: -3894795089189982982
-    second: CaveG_37
+      213: -1873328211023516177
+    second: foreground _37
   - first:
-      213: -8217611759763230904
-    second: CaveG_38
+      213: -5213712129382151102
+    second: foreground _38
   - first:
-      213: 4631732759459769914
-    second: CaveG_39
+      213: -257677837763035682
+    second: foreground _39
   - first:
-      213: 3069963155598260502
-    second: CaveG_40
+      213: -6445116271994859209
+    second: foreground _40
   - first:
-      213: 2114208989913858231
-    second: CaveG_41
+      213: 2924741605544513917
+    second: foreground _41
   - first:
-      213: 6354999358439907086
-    second: CaveG_42
+      213: -8833128252292489411
+    second: foreground _42
   - first:
-      213: -5232249200891647114
-    second: CaveG_43
+      213: 8232662302874401703
+    second: foreground _43
   - first:
-      213: 7843897414516140614
-    second: CaveG_44
+      213: 8662493810097325762
+    second: foreground _44
   - first:
-      213: 5833429398588962342
-    second: CaveG_45
-  - first:
-      213: -6511598071071912848
-    second: CaveG_46
-  - first:
-      213: -2172842407867358691
-    second: CaveG_47
-  - first:
-      213: -4124535680707656239
-    second: CaveG_48
+      213: -1746145130603086214
+    second: foreground _45
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -181,7 +172,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -257,13 +248,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CaveG_0
+      name: foreground _0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 480
-        width: 97
-        height: 96
+        x: 39
+        y: 413
+        width: 28
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 12e8e89caf9f8b1e0800000000000000
-      internalID: -2181719163942302175
+      spriteID: fd38a058f1b2322a0800000000000000
+      internalID: -6763514801004313633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveG_1
+      name: foreground _1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 480
-        width: 96
-        height: 96
+        x: 93
+        y: 413
+        width: 38
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,20 +285,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d5ea6c8ff6027dd40800000000000000
-      internalID: 5608987526200471133
+      spriteID: 8ae37cc61c7adece0800000000000000
+      internalID: -1374257862082609496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveG_2
+      name: foreground _2
       rect:
         serializedVersion: 2
-        x: 255
-        y: 479
-        width: 98
-        height: 97
+        x: 157
+        y: 413
+        width: 38
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -316,20 +307,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 520044d64b9127c00800000000000000
-      internalID: 896807538518130725
+      spriteID: 45dfaaf54021fef70800000000000000
+      internalID: 9218606772244905300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveG_3
+      name: foreground _3
       rect:
         serializedVersion: 2
-        x: 383
-        y: 479
-        width: 98
-        height: 97
+        x: 221
+        y: 413
+        width: 38
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -338,20 +329,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d6c5434a91c4bc6c0800000000000000
-      internalID: -4122117360914768787
+      spriteID: f79c35c74e70a0db0800000000000000
+      internalID: -4825035372854261377
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveG_4
+      name: foreground _4
       rect:
         serializedVersion: 2
-        x: 511
-        y: 479
-        width: 66
-        height: 66
+        x: 285
+        y: 413
+        width: 38
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,20 +351,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 55e4977a5ce62f1a0800000000000000
-      internalID: -6777232694041817515
+      spriteID: b4fb97c093107a440800000000000000
+      internalID: 4946924060223848267
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveG_5
+      name: foreground _5
       rect:
         serializedVersion: 2
-        x: 607
-        y: 479
-        width: 66
-        height: 66
+        x: 349
+        y: 413
+        width: 34
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -382,20 +373,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ae7ebbef97720ca0800000000000000
-      internalID: -6052143420493889883
+      spriteID: 94a88b2d2567a0000800000000000000
+      internalID: 2944847861811785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveG_6
+      name: foreground _6
       rect:
         serializedVersion: 2
-        x: 927
-        y: 479
-        width: 66
-        height: 66
+        x: 413
+        y: 413
+        width: 38
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -404,20 +395,152 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 633b56c837dfc0f80800000000000000
-      internalID: -8138851753846787274
+      spriteID: b590e0164014779e0800000000000000
+      internalID: -1623757653579789989
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveG_7
+      name: foreground _7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 416
+        x: 492
+        y: 417
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99394a4602a5a9680800000000000000
+      internalID: -8747580231039806567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _8
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 349
+        width: 28
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d6ae0c939ec3af40800000000000000
+      internalID: 5738657483573864146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _9
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 349
+        width: 38
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b52f7ba240c9ab60800000000000000
+      internalID: 7757943225700001202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _10
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 349
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44c644964f9915a40800000000000000
+      internalID: 5355230706937392196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _11
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 349
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0d9a2bfc800cb440800000000000000
+      internalID: 4952834295709998351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _12
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 349
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f1e27f3b76ef2870800000000000000
+      internalID: 8660394025476612598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _13
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 349
         width: 32
-        height: 32
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -426,20 +549,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a30172d4769ec6540800000000000000
-      internalID: 5002629915987087418
+      spriteID: d805dca3f1e4086c0800000000000000
+      internalID: -4143225761143369587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveG_8
+      name: foreground _14
       rect:
         serializedVersion: 2
-        x: 64
-        y: 416
+        x: 419
+        y: 349
         width: 32
-        height: 32
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -448,19 +571,437 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 55cc29557eb99fc30800000000000000
-      internalID: 4393714329352064085
+      spriteID: 9a107e3b36116e1d0800000000000000
+      internalID: -3321948555221466711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveG_9
+      name: foreground _15
       rect:
         serializedVersion: 2
-        x: 127
-        y: 415
+        x: 477
+        y: 358
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e70d87f3c47e0a70800000000000000
+      internalID: 8795095507321817064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 285
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9d95f2310d97a980800000000000000
+      internalID: -8527674740927259234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _17
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 285
+        width: 38
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1338fddc7fd9c6d40800000000000000
+      internalID: 5579007726041662257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _18
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 285
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f525a9de971d4eca0800000000000000
+      internalID: -5988431282888355233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _19
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 285
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 311532433102d70d0800000000000000
+      internalID: -3423544874880511725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _20
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 285
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df67e730c4e6e7a40800000000000000
+      internalID: 5367849078627399421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _21
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 285
         width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e20c4d99d07c5d0800000000000000
+      internalID: -3042448068914958840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _22
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 285
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 832dc6e3b45ce9a50800000000000000
+      internalID: 6529873436694336056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _23
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 297
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10c6f74c5593481d0800000000000000
+      internalID: -3349489182325117951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _24
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 221
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd35ff2e469601ac0800000000000000
+      internalID: -3886490596394708004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _25
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 221
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f886b4fe44d5c51c0800000000000000
+      internalID: -4513630175878223729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _26
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 220
+        width: 35
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feefd1e1928bd8840800000000000000
+      internalID: 5228037229185466095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _27
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 224
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b609b3b00d3c4230800000000000000
+      internalID: 3624338873350948530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _28
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 221
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f920e1b17d0958c90800000000000000
+      internalID: -7168163978342956385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _29
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 221
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a863cac7e92a58aa0800000000000000
+      internalID: -6159338113779091830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _30
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 242
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80bbe4ac5f93a3d10800000000000000
+      internalID: 2106059503573056264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _31
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 224
+        width: 31
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8a1bedcf7fb4c9f0800000000000000
+      internalID: -449023507193718132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _32
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1db2f63fca6116be0800000000000000
+      internalID: -1485881469981217839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _33
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 160
+        width: 38
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1133e9e0eac9de710800000000000000
+      internalID: 1724206503736259345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _34
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 161
+        width: 28
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -470,20 +1011,86 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f49180ed24b841b90800000000000000
-      internalID: -7272034378987333297
+      spriteID: dd6e8a403ae1d4300800000000000000
+      internalID: 237880040827184861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveG_10
+      name: foreground _35
       rect:
         serializedVersion: 2
-        x: 191
-        y: 415
+        x: 221
+        y: 161
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: badab538a095d9a80800000000000000
+      internalID: -8458506623443554901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _36
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 157
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bbfda5b603d3f830800000000000000
+      internalID: 4103855711235996598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _37
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 157
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feda93adae99006e0800000000000000
+      internalID: -1873328211023516177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _38
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 93
         width: 34
-        height: 34
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -492,20 +1099,86 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c92d11354b107dac0800000000000000
-      internalID: -3830591084055899492
+      spriteID: 24c0807117c25a7b0800000000000000
+      internalID: -5213712129382151102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveG_11
+      name: foreground _39
       rect:
         serializedVersion: 2
-        x: 255
-        y: 415
+        x: 93
+        y: 93
+        width: 38
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eddb4ad2f5b8c6cf0800000000000000
+      internalID: -257677837763035682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _40
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 93
+        width: 38
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73118a7f5e85e86a0800000000000000
+      internalID: -6445116271994859209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _41
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 93
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d71594a8ef4c69820800000000000000
+      internalID: 2924741605544513917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _42
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 32
         width: 34
-        height: 34
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -514,790 +1187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7b34cc3881664fd0800000000000000
-      internalID: -2358090117118936198
+      spriteID: d3f93aa87ac6a6580800000000000000
+      internalID: -8833128252292489411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveG_12
+      name: foreground _43
       rect:
         serializedVersion: 2
-        x: 319
-        y: 415
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ed1f9ddf40e7bae60800000000000000
-      internalID: 7974606125093482974
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_13
-      rect:
-        serializedVersion: 2
-        x: 383
-        y: 415
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5b95528ae30135160800000000000000
-      internalID: 7012966906041031093
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_14
-      rect:
-        serializedVersion: 2
-        x: 447
-        y: 415
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1467c4dd895e8eba0800000000000000
-      internalID: -6059340853916436927
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_15
-      rect:
-        serializedVersion: 2
-        x: 511
-        y: 383
-        width: 66
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c3d1222c61ec87b00800000000000000
-      internalID: 826637128764103996
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_16
-      rect:
-        serializedVersion: 2
-        x: 607
-        y: 383
-        width: 66
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c20e987c969064ec0800000000000000
-      internalID: -3583166103602733012
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_17
-      rect:
-        serializedVersion: 2
-        x: 703
-        y: 383
-        width: 66
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c0d81c74090281fc0800000000000000
-      internalID: -3524030904366166772
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_18
-      rect:
-        serializedVersion: 2
-        x: 799
-        y: 383
-        width: 34
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4f1e9647a72105280800000000000000
-      internalID: -9056718533493661196
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_19
-      rect:
-        serializedVersion: 2
-        x: 863
-        y: 383
-        width: 34
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e7432b0cc75b1c520800000000000000
-      internalID: 2720655197321966718
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_20
-      rect:
-        serializedVersion: 2
-        x: 927
-        y: 383
-        width: 66
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 25776d75374d4ebc0800000000000000
-      internalID: -3754642597460150446
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_21
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 351
-        width: 97
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 77e4afa58636b6230800000000000000
-      internalID: 3633106824258539127
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_22
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 351
-        width: 98
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c0bd6853a6da769d0800000000000000
-      internalID: -2781063573201822964
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_23
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 351
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 170e6147dc6ab2bf0800000000000000
-      internalID: -348001144844918671
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_24
-      rect:
-        serializedVersion: 2
-        x: 319
-        y: 351
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 701120d33e6b177b0800000000000000
-      internalID: -5228196605303058169
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_25
-      rect:
-        serializedVersion: 2
-        x: 383
-        y: 351
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4a10ac1a459722b80800000000000000
-      internalID: -8421034948830821980
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_26
-      rect:
-        serializedVersion: 2
-        x: 447
-        y: 351
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dde60325ea4b16c70800000000000000
-      internalID: 8962643394240212701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_27
-      rect:
-        serializedVersion: 2
-        x: 511
-        y: 287
-        width: 66
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fa8578434cfb25a90800000000000000
-      internalID: -7326582794362595153
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_28
-      rect:
-        serializedVersion: 2
-        x: 607
-        y: 287
-        width: 66
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0cd1bb8dff4aeb2a0800000000000000
-      internalID: -6719752175230444096
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_29
-      rect:
-        serializedVersion: 2
-        x: 703
-        y: 287
-        width: 66
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a29e81a15d0a158b0800000000000000
-      internalID: -5165170460490929878
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_30
-      rect:
-        serializedVersion: 2
-        x: 799
-        y: 223
-        width: 66
-        height: 130
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 28a7a4fd2a50533d0800000000000000
-      internalID: -3227667360852051326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_31
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 287
-        width: 97
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b2cd0cdedde25d6d0800000000000000
-      internalID: -2966413248842114005
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_32
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 287
-        width: 98
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 102ea59537e286060800000000000000
-      internalID: 6946853498174235137
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_33
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 287
-        width: 98
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3a52368279fe9a030800000000000000
-      internalID: 3506597217381328291
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_34
-      rect:
-        serializedVersion: 2
-        x: 383
-        y: 287
-        width: 98
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 669e887f52ecc2ca0800000000000000
-      internalID: -6040226337748620954
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_35
-      rect:
-        serializedVersion: 2
-        x: 895
-        y: 255
-        width: 66
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 61b18e910350c3020800000000000000
-      internalID: 2322737211967544086
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_36
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 223
-        width: 33
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a4d951037de5bca90800000000000000
-      internalID: -7292630893278683830
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_37
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 223
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: afc25eb7088e2f9c0800000000000000
-      internalID: -3894795089189982982
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_38
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 223
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 84f6d3da4ad25fd80800000000000000
-      internalID: -8217611759763230904
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_39
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 223
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a3ea32e9768374040800000000000000
-      internalID: 4631732759459769914
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_40
-      rect:
-        serializedVersion: 2
-        x: 447
-        y: 0
-        width: 258
-        height: 257
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 619b8f28933ba9a20800000000000000
-      internalID: 3069963155598260502
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_41
-      rect:
-        serializedVersion: 2
-        x: 799
-        y: 159
-        width: 130
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7b0c0c0ffdd275d10800000000000000
-      internalID: 2114208989913858231
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_42
-      rect:
-        serializedVersion: 2
-        x: 959
-        y: 159
-        width: 65
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e0f55ab0f3e713850800000000000000
-      internalID: 6354999358439907086
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_43
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 193
-        height: 193
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 67b288cc2115367b0800000000000000
-      internalID: -5232249200891647114
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_44
-      rect:
-        serializedVersion: 2
-        x: 223
-        y: 0
-        width: 194
-        height: 193
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 64ae6d6c32f1bdc60800000000000000
-      internalID: 7843897414516140614
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_45
-      rect:
-        serializedVersion: 2
-        x: 735
-        y: 174
-        width: 34
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6263735912184f050800000000000000
-      internalID: 5833429398588962342
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_46
-      rect:
-        serializedVersion: 2
-        x: 735
-        y: 97
-        width: 34
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 07cc3a5ed0822a5a0800000000000000
-      internalID: -6511598071071912848
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CaveG_47
-      rect:
-        serializedVersion: 2
-        x: 735
+        x: 93
         y: 31
-        width: 130
-        height: 98
+        width: 38
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1306,20 +1209,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d12692e975388d1e0800000000000000
-      internalID: -2172842407867358691
+      spriteID: 7abf396feba404270800000000000000
+      internalID: 8232662302874401703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaveG_48
+      name: foreground _44
       rect:
         serializedVersion: 2
-        x: 895
-        y: 31
-        width: 129
-        height: 98
+        x: 157
+        y: 32
+        width: 38
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1328,8 +1231,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d50fffa6a4b2c6c0800000000000000
-      internalID: -4124535680707656239
+      spriteID: 2c60fd3793c573870800000000000000
+      internalID: 8662493810097325762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foreground _45
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 33
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7eff14514274c7e0800000000000000
+      internalID: -1746145130603086214
       vertices: []
       indices: 
       edges: []
@@ -1348,55 +1273,52 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CaveG_0: -2181719163942302175
-      CaveG_1: 5608987526200471133
-      CaveG_10: -3830591084055899492
-      CaveG_11: -2358090117118936198
-      CaveG_12: 7974606125093482974
-      CaveG_13: 7012966906041031093
-      CaveG_14: -6059340853916436927
-      CaveG_15: 826637128764103996
-      CaveG_16: -3583166103602733012
-      CaveG_17: -3524030904366166772
-      CaveG_18: -9056718533493661196
-      CaveG_19: 2720655197321966718
-      CaveG_2: 896807538518130725
-      CaveG_20: -3754642597460150446
-      CaveG_21: 3633106824258539127
-      CaveG_22: -2781063573201822964
-      CaveG_23: -348001144844918671
-      CaveG_24: -5228196605303058169
-      CaveG_25: -8421034948830821980
-      CaveG_26: 8962643394240212701
-      CaveG_27: -7326582794362595153
-      CaveG_28: -6719752175230444096
-      CaveG_29: -5165170460490929878
-      CaveG_3: -4122117360914768787
-      CaveG_30: -3227667360852051326
-      CaveG_31: -2966413248842114005
-      CaveG_32: 6946853498174235137
-      CaveG_33: 3506597217381328291
-      CaveG_34: -6040226337748620954
-      CaveG_35: 2322737211967544086
-      CaveG_36: -7292630893278683830
-      CaveG_37: -3894795089189982982
-      CaveG_38: -8217611759763230904
-      CaveG_39: 4631732759459769914
-      CaveG_4: -6777232694041817515
-      CaveG_40: 3069963155598260502
-      CaveG_41: 2114208989913858231
-      CaveG_42: 6354999358439907086
-      CaveG_43: -5232249200891647114
-      CaveG_44: 7843897414516140614
-      CaveG_45: 5833429398588962342
-      CaveG_46: -6511598071071912848
-      CaveG_47: -2172842407867358691
-      CaveG_48: -4124535680707656239
-      CaveG_5: -6052143420493889883
-      CaveG_6: -8138851753846787274
-      CaveG_7: 5002629915987087418
-      CaveG_8: 4393714329352064085
-      CaveG_9: -7272034378987333297
+      foreground _0: -6763514801004313633
+      foreground _1: -1374257862082609496
+      foreground _10: 5355230706937392196
+      foreground _11: 4952834295709998351
+      foreground _12: 8660394025476612598
+      foreground _13: -4143225761143369587
+      foreground _14: -3321948555221466711
+      foreground _15: 8795095507321817064
+      foreground _16: -8527674740927259234
+      foreground _17: 5579007726041662257
+      foreground _18: -5988431282888355233
+      foreground _19: -3423544874880511725
+      foreground _2: 9218606772244905300
+      foreground _20: 5367849078627399421
+      foreground _21: -3042448068914958840
+      foreground _22: 6529873436694336056
+      foreground _23: -3349489182325117951
+      foreground _24: -3886490596394708004
+      foreground _25: -4513630175878223729
+      foreground _26: 5228037229185466095
+      foreground _27: 3624338873350948530
+      foreground _28: -7168163978342956385
+      foreground _29: -6159338113779091830
+      foreground _3: -4825035372854261377
+      foreground _30: 2106059503573056264
+      foreground _31: -449023507193718132
+      foreground _32: -1485881469981217839
+      foreground _33: 1724206503736259345
+      foreground _34: 237880040827184861
+      foreground _35: -8458506623443554901
+      foreground _36: 4103855711235996598
+      foreground _37: -1873328211023516177
+      foreground _38: -5213712129382151102
+      foreground _39: -257677837763035682
+      foreground _4: 4946924060223848267
+      foreground _40: -6445116271994859209
+      foreground _41: 2924741605544513917
+      foreground _42: -8833128252292489411
+      foreground _43: 8232662302874401703
+      foreground _44: 8662493810097325762
+      foreground _45: -1746145130603086214
+      foreground _5: 2944847861811785
+      foreground _6: -1623757653579789989
+      foreground _7: -8747580231039806567
+      foreground _8: 5738657483573864146
+      foreground _9: 7757943225700001202
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
