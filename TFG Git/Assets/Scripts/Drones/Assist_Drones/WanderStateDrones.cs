@@ -10,16 +10,25 @@ public class WanderStateDrones : MonoBehaviour
 
     private Vector2 targetPosition;
     private bool isWaiting = false;
-    private bool isPaused = false;          // ← new
+    private bool isPaused = false;
 
     [SerializeField] private BoxCollider2D zoneCollider;
     private Rigidbody2D rb;
+    private SpriteRenderer sprite;
+    private Animator animator;                          // ← added
+
+    [Header("Tilt")]
+    [SerializeField] private float maxTiltAngle = 15f;
+    [SerializeField] private float tiltSpeed = 8f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         rb.freezeRotation = true;
+
+        sprite   = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();            // ← added
 
         zoneCollider = GetComponentInParent<BoxCollider2D>();
         if (zoneCollider == null)
@@ -33,9 +42,12 @@ public class WanderStateDrones : MonoBehaviour
 
     void Update()
     {
-        if (isWaiting || isPaused) return;  // ← isPaused added
-
-        
+        if (isWaiting || isPaused)
+        {
+            ApplyTilt(0f);
+            animator.SetFloat("velocityX", 0f);        // ← added: returns to idle
+            return;
+        }
 
         MoveTowardsTarget();
 
@@ -45,11 +57,29 @@ public class WanderStateDrones : MonoBehaviour
 
     private void MoveTowardsTarget()
     {
+        Vector2 direction = ((Vector2)targetPosition - (Vector2)transform.position).normalized;
+
         transform.position = Vector2.MoveTowards(
             transform.position,
             targetPosition,
             moveSpeed * Time.deltaTime
         );
+
+        // Pass horizontal direction to Animator           ← added
+        animator.SetFloat("velocityX", direction.x);
+
+        // Tilt based on horizontal direction
+        ApplyTilt(direction.x * maxTiltAngle);
+    }
+
+    private void ApplyTilt(float targetAngle)
+    {
+        float smoothAngle = Mathf.LerpAngle(
+            transform.rotation.eulerAngles.z,
+            -targetAngle,
+            Time.deltaTime * tiltSpeed
+        );
+        transform.rotation = Quaternion.Euler(0, 0, smoothAngle);
     }
 
     private void PickNewtarget()
@@ -70,7 +100,6 @@ public class WanderStateDrones : MonoBehaviour
         isWaiting = false;
     }
 
-    // ── Public API ────────────────────────────────────────────────
     public void PauseWander()
     {
         isPaused = true;
@@ -84,7 +113,6 @@ public class WanderStateDrones : MonoBehaviour
         isPaused = false;
         PickNewtarget();
     }
-
 
     void OnDrawGizmosSelected()
     {

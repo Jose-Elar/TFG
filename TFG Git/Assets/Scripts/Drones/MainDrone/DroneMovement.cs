@@ -67,7 +67,10 @@ public class DroneMovement : MonoBehaviour
         }
 
         nearbyButton?.tryPress();
-        StartCoroutine(ScanRoutine());
+        if (nearbyButton != null)
+        {
+            StartCoroutine(ScanRoutine());
+        }
     }
  
     private void BridgeAction_performed(InputAction.CallbackContext context)

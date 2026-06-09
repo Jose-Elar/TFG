@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class MovementBehaviour : MonoBehaviour
 {
+    [Header("SavePoint Lights")]
+    [SerializeField] private SavePointLight[] allSaveLights;
+
     [Header("Waypoints")]
     [SerializeField] private Transform[] waypoints;
     [SerializeField] private float stopDistance = 0.3f;
@@ -194,6 +197,7 @@ public class MovementBehaviour : MonoBehaviour
             Debug.Log("[MovementBehaviour] Reached waypoint " + _currentWaypointIndex
                       + " (" + CurrentTarget.name + ")");
 
+            ActivateSavePoint(_currentWaypointIndex);
             _currentWaypointIndex++;
 
             if (_currentWaypointIndex >= waypoints.Length)
@@ -339,6 +343,17 @@ public class MovementBehaviour : MonoBehaviour
 
         return false;
     }
+
+    public void ActivateSavePoint(int index)
+{
+    for (int i = 0; i < allSaveLights.Length; i++)
+    {
+        if (i == index)
+            allSaveLights[i].SetState(SavePointLight.LightState.Flashing);
+        else
+            allSaveLights[i].SetState(SavePointLight.LightState.Deactivated);
+    }
+}
 
     // ── Gizmos ─────────────────────────────────────────────────────────────
 
