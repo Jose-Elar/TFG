@@ -81,13 +81,15 @@ public class MovementBehaviour : MonoBehaviour
 
     private Rigidbody2D    _rb;
     private SpriteRenderer _sprite;
+    private Animator       _animator;                          // ← added
 
     void Awake()
     {
-        _rb     = GetComponent<Rigidbody2D>();
-        _sprite = GetComponent<SpriteRenderer>();
+        _rb       = GetComponent<Rigidbody2D>();
+        _sprite   = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();                  // ← added
 
-        // Start with a random wait before first wander
+        _rb.freezeRotation = true;
         _wanderTimer = Random.Range(wanderWaitMin, wanderWaitMax);
     }
 
@@ -141,6 +143,7 @@ public class MovementBehaviour : MonoBehaviour
         if (_gapAhead)
         {
             _rb.linearVelocity = Vector2.zero;
+            _animator.SetBool("isWalking", false);             // ← idle at gap
             if (isJumpHole)
             {
                 _waitingToJump = true;
@@ -160,7 +163,10 @@ public class MovementBehaviour : MonoBehaviour
             if (enableIdleWander)
                 WanderBehaviour();
             else
+            {
                 _rb.linearVelocity = Vector2.zero;
+                _animator.SetBool("isWalking", false);         // ← idle when stopped
+            }
             return;
         }
 
@@ -173,8 +179,8 @@ public class MovementBehaviour : MonoBehaviour
 
     private bool CheckRaycast()
     {
-        Vector2 direction         = (CurrentTarget.position - transform.position).normalized;
-        Vector2 rayOrigin         = (Vector2)transform.position + direction * 1f;
+        Vector2 direction          = (CurrentTarget.position - transform.position).normalized;
+        Vector2 rayOrigin          = (Vector2)transform.position + direction * 1f;
         float   distanceToWaypoint = Vector2.Distance(transform.position, CurrentTarget.position);
 
         RaycastHit2D hit = Physics2D.Raycast(rayOrigin, direction, distanceToWaypoint, obstacleLayer);
@@ -191,8 +197,9 @@ public class MovementBehaviour : MonoBehaviour
 
         if (distance <= stopDistance)
         {
-            _rb.linearVelocity        = Vector2.zero;
-            _lastCheckpointPosition   = CurrentTarget.position;
+            _rb.linearVelocity      = Vector2.zero;
+            _lastCheckpointPosition = CurrentTarget.position;
+            _animator.SetBool("isWalking", false);             // ← idle on arrival
 
             Debug.Log("[MovementBehaviour] Reached waypoint " + _currentWaypointIndex
                       + " (" + CurrentTarget.name + ")");
@@ -213,6 +220,12 @@ public class MovementBehaviour : MonoBehaviour
 
         Vector2 direction = ((Vector2)CurrentTarget.position - (Vector2)transform.position).normalized;
         _rb.linearVelocity = direction * moveSpeed;
+
+        // Flip sprite
+        if      (direction.x > 0) _sprite.flipX = false;
+        else if (direction.x < 0) _sprite.flipX = true;
+
+        _animator.SetBool("isWalking", true);                  // ← walk while moving
     }
 
     public Vector3 GetLastCheckpointPosition()
@@ -230,56 +243,53 @@ public class MovementBehaviour : MonoBehaviour
         {
             case WanderState.Waiting:
                 _rb.linearVelocity = Vector2.zero;
+                _animator.SetBool("isWalking", false);         // ← idle while waiting
                 _wanderTimer -= Time.deltaTime;
 
                 if (_wanderTimer <= 0f)
                 {
-                    // Pick a direction, flip if near screen edge
                     _wanderDirection = Random.value > 0.5f ? 1 : -1;
                     _wanderDirection = ClampDirectionToScreen(_wanderDirection);
-
-                    // Set target position for this wander step
-                    _wanderTarget = transform.position
-                                  + new Vector3(_wanderDirection * wanderMoveDistance, 0f, 0f);
-
-                    _wanderState = WanderState.Moving;
+                    _wanderTarget    = transform.position
+                                     + new Vector3(_wanderDirection * wanderMoveDistance, 0f, 0f);
+                    _wanderState     = WanderState.Moving;
                 }
                 break;
 
             case WanderState.Moving:
-                // Stop if we'd go offscreen
                 int clamped = ClampDirectionToScreen(_wanderDirection);
                 if (clamped != _wanderDirection)
                 {
-                    // About to leave screen — stop and wait
                     _rb.linearVelocity = Vector2.zero;
-                    _wanderState       = WanderState.Waiting;
-                    _wanderTimer       = Random.Range(wanderWaitMin, wanderWaitMax);
+                    _animator.SetBool("isWalking", false);     // ← idle when stopping
+                    _wanderState = WanderState.Waiting;
+                    _wanderTimer = Random.Range(wanderWaitMin, wanderWaitMax);
                     break;
                 }
 
-                // Move towards wander target
+                // Flip sprite during wander
+                if      (_wanderDirection > 0) _sprite.flipX = false;
+                else if (_wanderDirection < 0) _sprite.flipX = true;
+
+                _animator.SetBool("isWalking", true);          // ← walk while wandering
+
                 transform.position = Vector2.MoveTowards(
                     transform.position,
                     _wanderTarget,
                     wanderSpeed * Time.deltaTime
                 );
 
-                // Arrived at wander target — go back to waiting
                 if (Vector2.Distance(transform.position, _wanderTarget) < 0.05f)
                 {
                     _rb.linearVelocity = Vector2.zero;
-                    _wanderState       = WanderState.Waiting;
-                    _wanderTimer       = Random.Range(wanderWaitMin, wanderWaitMax);
+                    _animator.SetBool("isWalking", false);     // ← idle on wander arrival
+                    _wanderState = WanderState.Waiting;
+                    _wanderTimer = Random.Range(wanderWaitMin, wanderWaitMax);
                 }
                 break;
         }
     }
 
-    /// <summary>
-    /// Checks if moving in the given direction would take the character
-    /// off screen. Reverses the direction if too close to the edge.
-    /// </summary>
     private int ClampDirectionToScreen(int direction)
     {
         Camera cam = Camera.main;
@@ -301,13 +311,17 @@ public class MovementBehaviour : MonoBehaviour
 
     private bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(
-            (Vector2)transform.position + new Vector2(0f, rayVerticalOffset),
-            Vector2.down,
-            landingCheckDepth,
-            landingLayer
-        );
-        return hit.collider != null;
+        float halfWidth = 0.3f;
+
+        Vector2 centerOrigin = (Vector2)transform.position + new Vector2(0f,         rayVerticalOffset);
+        Vector2 leftOrigin   = (Vector2)transform.position + new Vector2(-halfWidth,  rayVerticalOffset);
+        Vector2 rightOrigin  = (Vector2)transform.position + new Vector2( halfWidth,  rayVerticalOffset);
+
+        RaycastHit2D center = Physics2D.Raycast(centerOrigin, Vector2.down, landingCheckDepth, landingLayer);
+        RaycastHit2D left   = Physics2D.Raycast(leftOrigin,   Vector2.down, landingCheckDepth, landingLayer);
+        RaycastHit2D right  = Physics2D.Raycast(rightOrigin,  Vector2.down, landingCheckDepth, landingLayer);
+
+        return center.collider != null || left.collider != null || right.collider != null;
     }
 
     // ── Gap detection ──────────────────────────────────────────────────────
@@ -345,15 +359,15 @@ public class MovementBehaviour : MonoBehaviour
     }
 
     public void ActivateSavePoint(int index)
-{
-    for (int i = 0; i < allSaveLights.Length; i++)
     {
-        if (i == index)
-            allSaveLights[i].SetState(SavePointLight.LightState.Flashing);
-        else
-            allSaveLights[i].SetState(SavePointLight.LightState.Deactivated);
+        for (int i = 0; i < allSaveLights.Length; i++)
+        {
+            if (i == index)
+                allSaveLights[i].SetState(SavePointLight.LightState.Flashing);
+            else
+                allSaveLights[i].SetState(SavePointLight.LightState.Deactivated);
+        }
     }
-}
 
     // ── Gizmos ─────────────────────────────────────────────────────────────
 
@@ -398,7 +412,13 @@ public class MovementBehaviour : MonoBehaviour
         }
 
         Gizmos.color = Color.magenta;
-        Vector2 landOrigin = (Vector2)transform.position + new Vector2(0f, rayVerticalOffset);
-        Gizmos.DrawLine(landOrigin, landOrigin + Vector2.down * landingCheckDepth);
+        float halfWidth  = 0.3f;
+        Vector2[] groundOrigins = {
+            (Vector2)transform.position + new Vector2(-halfWidth, rayVerticalOffset),
+            (Vector2)transform.position + new Vector2(0f,         rayVerticalOffset),
+            (Vector2)transform.position + new Vector2( halfWidth,  rayVerticalOffset)
+        };
+        foreach (Vector2 origin in groundOrigins)
+            Gizmos.DrawLine(origin, origin + Vector2.down * landingCheckDepth);
     }
 }

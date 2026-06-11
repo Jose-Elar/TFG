@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ec41ad3e134f7ca4c97b403091615fd6
+guid: 3f470b69f24c04a45adab8d0b845d9d3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -447473410278073587
-    second: SootSprite1_0
+      213: -4227067862949901682
+    second: cloud5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SootSprite1_0
+      name: cloud5_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 6
-        width: 33
-        height: 33
+        x: 0
+        y: 0
+        width: 105
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d0b51fddd414ac9f0800000000000000
-      internalID: -447473410278073587
+      spriteID: e8ac663bc207655c0800000000000000
+      internalID: -4227067862949901682
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SootSprite1_0: -447473410278073587
+      cloud5_0: -4227067862949901682
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

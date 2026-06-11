@@ -1,40 +1,31 @@
 fileFormatVersion: 2
-guid: 2423f95339e59ca4496ebf2656bd628d
+guid: af50233fb3a60254d9051522792aa13f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3279558669035871777
-    second: blue_blob_0
+      213: 1233915282862539365
+    second: IdleEnemyRobot_0
   - first:
-      213: -1206963206417973478
-    second: blue_blob_1
+      213: -3598072720610312276
+    second: IdleEnemyRobot_1
   - first:
-      213: -2007422652486174066
-    second: blue_blob_2
+      213: 6216880003140047684
+    second: IdleEnemyRobot_2
   - first:
-      213: 2964842164639371277
-    second: blue_blob_3
+      213: -6393478327023227993
+    second: IdleEnemyRobot_3
   - first:
-      213: -5986666152985506295
-    second: blue_blob_4
+      213: 1678870170613328242
+    second: IdleEnemyRobot_4
   - first:
-      213: 3684969578000205923
-    second: blue_blob_5
+      213: 6400737044334183117
+    second: IdleEnemyRobot_5
   - first:
-      213: -3532184650283825324
-    second: blue_blob_6
+      213: 8543391767962536490
+    second: IdleEnemyRobot_6
   - first:
-      213: -688289481625497164
-    second: blue_blob_7
-  - first:
-      213: -3044119211577866582
-    second: blue_blob_8
-  - first:
-      213: 3531241264769281087
-    second: blue_blob_9
-  - first:
-      213: -4299017508470034463
-    second: blue_blob_10
+      213: -2420951816105354300
+    second: IdleEnemyRobot_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -143,189 +134,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: blue_blob_0
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 31
-        width: 14
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 12e9fefcb35538d20800000000000000
-      internalID: 3279558669035871777
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blue_blob_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 31
-        width: 16
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a1f7d78cb51004fe0800000000000000
-      internalID: -1206963206417973478
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blue_blob_2
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 19
-        width: 9
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e8a3d7cbbb33424e0800000000000000
-      internalID: -2007422652486174066
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blue_blob_3
-      rect:
-        serializedVersion: 2
-        x: 31
-        y: 21
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d001e668d3c352920800000000000000
-      internalID: 2964842164639371277
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blue_blob_4
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 31
-        width: 16
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 90ec1724ad61beca0800000000000000
-      internalID: -5986666152985506295
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blue_blob_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 15
-        width: 16
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 368c2d0be44a32330800000000000000
-      internalID: 3684969578000205923
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blue_blob_6
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 15
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 457cebe56c82bfec0800000000000000
-      internalID: -3532184650283825324
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blue_blob_7
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 0
-        width: 12
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4b11319fc54b276f0800000000000000
-      internalID: -688289481625497164
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blue_blob_8
+      name: IdleEnemyRobot_0
       rect:
         serializedVersion: 2
         x: 16
         y: 0
-        width: 12
-        height: 13
+        width: 32
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,20 +149,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aa685fb94bd11c5d0800000000000000
-      internalID: -3044119211577866582
+      spriteID: 56282f5896fbf1110800000000000000
+      internalID: 1233915282862539365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blue_blob_9
+      name: IdleEnemyRobot_1
       rect:
         serializedVersion: 2
-        x: 31
+        x: 80
         y: 0
-        width: 14
-        height: 12
+        width: 32
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -356,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3c26c2983d710130800000000000000
-      internalID: 3531241264769281087
+      spriteID: cafbffb8ce3111ec0800000000000000
+      internalID: -3598072720610312276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blue_blob_10
+      name: IdleEnemyRobot_2
       rect:
         serializedVersion: 2
-        x: 48
+        x: 144
         y: 0
-        width: 16
-        height: 10
+        width: 32
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,8 +193,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1ef657c6a52d654c0800000000000000
-      internalID: -4299017508470034463
+      spriteID: 4435466ac6bc64650800000000000000
+      internalID: 6216880003140047684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleEnemyRobot_3
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ab2f9ee55dc547a0800000000000000
+      internalID: -6393478327023227993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleEnemyRobot_4
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 279286f668b8c4710800000000000000
+      internalID: 1678870170613328242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleEnemyRobot_5
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc20934ed6cf3d850800000000000000
+      internalID: 6400737044334183117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleEnemyRobot_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2a47625c89309670800000000000000
+      internalID: 8543391767962536490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleEnemyRobot_7
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 0
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cb14b6662d076ed0800000000000000
+      internalID: -2420951816105354300
       vertices: []
       indices: 
       edges: []
@@ -398,17 +323,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      blue_blob_0: 3279558669035871777
-      blue_blob_1: -1206963206417973478
-      blue_blob_10: -4299017508470034463
-      blue_blob_2: -2007422652486174066
-      blue_blob_3: 2964842164639371277
-      blue_blob_4: -5986666152985506295
-      blue_blob_5: 3684969578000205923
-      blue_blob_6: -3532184650283825324
-      blue_blob_7: -688289481625497164
-      blue_blob_8: -3044119211577866582
-      blue_blob_9: 3531241264769281087
+      IdleEnemyRobot_0: 1233915282862539365
+      IdleEnemyRobot_1: -3598072720610312276
+      IdleEnemyRobot_2: 6216880003140047684
+      IdleEnemyRobot_3: -6393478327023227993
+      IdleEnemyRobot_4: 1678870170613328242
+      IdleEnemyRobot_5: 6400737044334183117
+      IdleEnemyRobot_6: 8543391767962536490
+      IdleEnemyRobot_7: -2420951816105354300
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
