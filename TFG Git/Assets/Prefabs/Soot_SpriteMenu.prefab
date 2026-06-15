@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8799031702184545733}
   - component: {fileID: 8297245086813498577}
   - component: {fileID: 6566041986022591004}
+  - component: {fileID: 6213263257197634822}
   m_Layer: 0
   m_Name: Soot_SpriteMenu
   m_TagString: Soot_Sprite
@@ -103,7 +104,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253457032467878358}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -156,8 +157,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0045357556, y: -0.008859111}
-  m_Size: {x: 0.21125413, y: 0.23727803}
+  m_Offset: {x: -0.0045357556, y: -0.00605038}
+  m_Size: {x: 0.21125421, y: 0.23166053}
   m_Direction: 0
 --- !u!95 &6566041986022591004
 Animator:
@@ -181,6 +182,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6213263257197634822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253457032467878358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 055db6664314b80468b72b04ec3037d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuNPC
+  wanderZone: {fileID: 0}
+  wanderSpeed: 1.5
+  wanderWaitMin: 1
+  wanderWaitMax: 3
+  cliffEdge: {fileID: 0}
+  walkToEdgeSpeed: 2
+  jumpForce: 10
+  gravityScale: 3
+  gameSceneName: TilingTest2
+  offScreenDelay: 0.5
+  fadeCanvas: {fileID: 0}
 --- !u!1 &1505126700898403559
 GameObject:
   m_ObjectHideFlags: 0

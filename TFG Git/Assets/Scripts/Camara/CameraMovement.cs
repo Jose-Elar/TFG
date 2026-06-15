@@ -1,46 +1,49 @@
 using System.Collections;
 using UnityEngine;
- 
+
 /// <summary>
-/// Retro-style 2D camera that waits a moment after the Soot_Sprite
-/// leaves the screen, then pans in the direction it exited.
-/// Attach this script to your Main Camera.
+/// Camera follows the player horizontally at all times.
+/// Vertically, it waits a moment after the player leaves the screen,
+/// pauses the game, then pans to reveal the next area.
 /// </summary>
 public class CameraMovement : MonoBehaviour
 {
     [Header("Target")]
     public Transform target;
- 
-    [Header("Pan Settings")]
+
+    [Header("Horizontal Follow")]
+    public bool followX = true;
+    public float followSpeed = 8f;
+
+    [Header("Vertical Pan Settings")]
     public float delayBeforePan = 1.5f;
-    [Tooltip("How far the camera pans horizontally.")]
-    public float panDistanceX = 10f;
-    [Tooltip("How far the camera pans vertically — keep this smaller than X.")]
     public float panDistanceY = 3f;
     public float panSpeed = 6f;
- 
+
     [Header("Edge Padding")]
     public float edgePadding = 0.5f;
- 
+
     // ── internals ──────────────────────────────────────────────────────────
-    private Camera    _cam;
-    private bool      _isPanning      = false;
-    private bool      _waitingToStart = false;
-    private Vector3   _panTarget;
+    private Camera _cam;
+    private bool _isPanning = false;
+    private bool _waitingToStart = false;
+    private Vector3 _panTarget;
     private Coroutine _delayCoroutine;
- 
+
     // ── Unity lifecycle ────────────────────────────────────────────────────
+
     void Awake()
     {
         _cam = GetComponent<Camera>();
     }
- 
+
     void Update()
     {
-        if (target == null || _isPanning || _waitingToStart) return;
- 
+        if (target == null || _isPanning || _waitingToStart)
+            return;
+
         Vector2 exitDir = GetExitDirection();
- 
+
         if (exitDir != Vector2.zero)
         {
             PauseGame();
@@ -48,17 +51,36 @@ public class CameraMovement : MonoBehaviour
             _delayCoroutine = StartCoroutine(DelayThenPan(exitDir));
         }
     }
- 
+
     void LateUpdate()
     {
-        if (!_isPanning) return;
- 
+        if (target == null)
+            return;
+
+        // Continuous horizontal follow
+        if (followX)
+        {
+            Vector3 pos = transform.position;
+
+            pos.x = Mathf.Lerp(
+                pos.x,
+                target.position.x,
+                followSpeed * Time.unscaledDeltaTime
+            );
+
+            transform.position = pos;
+        }
+
+        // Vertical pan movement
+        if (!_isPanning)
+            return;
+
         transform.position = Vector3.MoveTowards(
             transform.position,
             _panTarget,
             panSpeed * Time.unscaledDeltaTime
         );
- 
+
         if (Vector3.Distance(transform.position, _panTarget) < 0.01f)
         {
             transform.position = _panTarget;
@@ -66,100 +88,92 @@ public class CameraMovement : MonoBehaviour
             ResumeGame();
         }
     }
- 
+
     // ── helpers ────────────────────────────────────────────────────────────
- 
+
     Vector2 GetExitDirection()
     {
         float halfH = _cam.orthographicSize + edgePadding;
-        float halfW = halfH * _cam.aspect   + edgePadding;
- 
-        Vector3 camPos    = transform.position;
+
+        Vector3 camPos = transform.position;
         Vector3 targetPos = target.position;
- 
-        float dx = targetPos.x - camPos.x;
+
         float dy = targetPos.y - camPos.y;
- 
-        float exitX = 0f;
+
         float exitY = 0f;
- 
-        if (Mathf.Abs(dx) > halfW) exitX = Mathf.Sign(dx);
-        if (Mathf.Abs(dy) > halfH) exitY = Mathf.Sign(dy);
- 
-        return new Vector2(exitX, exitY);
+
+        if (Mathf.Abs(dy) > halfH)
+            exitY = Mathf.Sign(dy);
+
+        return new Vector2(0f, exitY);
     }
- 
+
     IEnumerator DelayThenPan(Vector2 exitDir)
     {
         float elapsed = 0f;
- 
+
         while (elapsed < delayBeforePan)
         {
             elapsed += Time.unscaledDeltaTime;
- 
+
             if (GetExitDirection() == Vector2.zero)
             {
                 _waitingToStart = false;
                 ResumeGame();
                 yield break;
             }
- 
+
             yield return null;
         }
- 
-        // Build the pan destination based on where the character actually is
-        // so one pan covers the exact distance needed regardless of axis
-        Vector3 targetPos  = target.position;
-        Vector3 camPos     = transform.position;
- 
-        float destinationX = camPos.x + exitDir.x * panDistanceX;
- 
-        float destinationY;
-        if (exitDir.y != 0f)
-        {
-            // Offset a few units in the direction of travel so the character
-            // isn't at the very edge of the screen after the pan
-            // exitDir.y is -1 (falling down) or +1 (going up)
-            destinationY = targetPos.y + exitDir.y * panDistanceY;
-        }
-        else
-        {
-            destinationY = camPos.y; // no vertical exit — keep current Y
-        }
- 
-        _panTarget = new Vector3(destinationX, destinationY, camPos.z);
- 
+
+        Vector3 targetPos = target.position;
+        Vector3 camPos = transform.position;
+
+        float destinationY = targetPos.y + exitDir.y * panDistanceY;
+
+        _panTarget = new Vector3(
+            transform.position.x,
+            destinationY,
+            camPos.z
+        );
+
         _waitingToStart = false;
-        _isPanning      = true;
+        _isPanning = true;
     }
- 
+
     // ── pause / resume ─────────────────────────────────────────────────────
- 
+
     void PauseGame()
     {
         Time.timeScale = 0f;
     }
- 
+
     void ResumeGame()
     {
         Time.timeScale = 1f;
         Debug.Log("[CameraMovement] Game resumed.");
     }
- 
+
     // ── debug visualisation ────────────────────────────────────────────────
+
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()
     {
-        if (_cam == null) _cam = GetComponent<Camera>();
-        if (_cam == null || !_cam.orthographic) return;
- 
+        if (_cam == null)
+            _cam = GetComponent<Camera>();
+
+        if (_cam == null || !_cam.orthographic)
+            return;
+
         float halfH = _cam.orthographicSize + edgePadding;
-        float halfW = halfH * _cam.aspect   + edgePadding;
- 
+        float halfW = halfH * _cam.aspect + edgePadding;
+
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireCube(transform.position,
-            new Vector3(halfW * 2f, halfH * 2f, 0f));
- 
+        Gizmos.DrawWireCube(
+            transform.position,
+            new Vector3(halfW * 2f, halfH * 2f, 0f)
+        );
+
         if (_isPanning)
         {
             Gizmos.color = Color.yellow;
@@ -169,4 +183,3 @@ public class CameraMovement : MonoBehaviour
     }
 #endif
 }
- 

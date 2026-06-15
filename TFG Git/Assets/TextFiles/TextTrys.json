@@ -15,6 +15,14 @@
         "We made it.",
         "Let's continue."
       ]
-    }
+    },{
+  "id": "intro_01",
+  "speaker": "System",
+  "lines": [
+    "Initializing scan sequence...",
+    "Deploying assist drones.",
+    "Proceed with cave exploration."
+    ]
+  }
   ]
 }
