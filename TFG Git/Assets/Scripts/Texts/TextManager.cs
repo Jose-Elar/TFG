@@ -17,6 +17,8 @@ public class TextManager : MonoBehaviour
     [SerializeField] private float typingSpeed = 0.05f;
     [SerializeField] private float panelOpenDelay = 0.5f;
 
+    public event Action OnDialogueEnded;
+
     private MainDrone_Actions mainDrone_Actions;
 
     private DialogueDatabase dialogueDatabase;
@@ -186,9 +188,9 @@ public class TextManager : MonoBehaviour
     private void EndDialogue()
     {
         currentDialogue = null;
-
         dialogueText.text = "";
-
         dialoguePanel.SetActive(false);
+
+        OnDialogueEnded?.Invoke();
     }
 }

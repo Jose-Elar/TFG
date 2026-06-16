@@ -4,8 +4,8 @@
       "id": "intro_message",
       "speaker": "Soot Sprite",
       "lines": [
-        "We need to cross the bridge.",
-        "The drone can help us get there."
+        "Starting Scouting Mission, to recolet data from the cave.",
+        "Proceed with cave exploration."
       ]
     },
     {
@@ -16,12 +16,11 @@
         "Let's continue."
       ]
     },{
-  "id": "intro_01",
-  "speaker": "System",
-  "lines": [
-    "Initializing scan sequence...",
-    "Deploying assist drones.",
-    "Proceed with cave exploration."
+      "id": "intro_01",
+      "speaker": "System",
+      "lines": [
+        "Initializing scan sequence...",
+        "Deploying assist drones."
     ]
   }
   ]

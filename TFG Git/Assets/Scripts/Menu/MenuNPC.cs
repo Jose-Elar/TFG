@@ -34,7 +34,7 @@ public class MenuNPC : MonoBehaviour
     private SpriteRenderer _sprite;
     private Animator       _animator;
 
-    private enum NPCState { Wandering, WalkingToEdge, Jumping, OffScreen }
+    private enum NPCState { Wandering, WalkingToEdge, WaitingForDialogue, Jumping, OffScreen }
     private NPCState _state = NPCState.Wandering;
 
     private enum WanderState { Waiting, Moving }
@@ -86,52 +86,64 @@ public class MenuNPC : MonoBehaviour
         _animator.SetBool(ANIM_WALKING, false);
     }
 
-    // ── Walk to cliff edge ────────────────────────────────────────
-    private void WalkToEdge()
+// ── Walk to cliff edge ────────────────────────────────────────
+private void WalkToEdge()
+{
+    if (cliffEdge == null) return;
+
+    Vector2 direction = ((Vector2)cliffEdge.position - (Vector2)transform.position).normalized;
+
+    _sprite.flipX = direction.x < 0;
+    _animator.SetBool(ANIM_WALKING, true);
+
+    float newX = Mathf.MoveTowards(
+        transform.position.x,
+        cliffEdge.position.x,
+        walkToEdgeSpeed * Time.deltaTime
+    );
+    transform.position = new Vector3(newX, transform.position.y, transform.position.z);
+
+    HandleFootsteps(transform.position);
+
+    float distance = Vector2.Distance(transform.position, cliffEdge.position);
+
+    if (distance <= 0.5f)
     {
-        if (cliffEdge == null) return;
+        Debug.Log("[MenuNPC] Reached edge, starting dialogue.");
+        _rb.linearVelocity = Vector2.zero;
+        _animator.SetBool(ANIM_WALKING, false);
 
-        Vector2 direction = ((Vector2)cliffEdge.position - (Vector2)transform.position).normalized;
+        // Stop walking, play dialogue, jump after
+        _state = NPCState.WaitingForDialogue;               // ← new state
 
-        _sprite.flipX = direction.x < 0;
-        _animator.SetBool(ANIM_WALKING, true);
-
-        float newX = Mathf.MoveTowards(
-            transform.position.x,
-            cliffEdge.position.x,
-            walkToEdgeSpeed * Time.deltaTime
-        );
-        transform.position = new Vector3(newX, transform.position.y, transform.position.z);
-
-        HandleFootsteps(transform.position);
-
-        float distance = Vector2.Distance(transform.position, cliffEdge.position);
-
-        if (distance <= 0.5f)
-        {
-            Debug.Log("[MenuNPC] Starting jump routine.");
-            _rb.linearVelocity = Vector2.zero;
-            _animator.SetBool(ANIM_WALKING, false);
-            StartCoroutine(JumpRoutine());
-        }
+        TextManager.Instance.OnDialogueEnded += OnEdgeDialogueFinished;
+        TextManager.Instance.StartDialogue("intro_message");
     }
+}
 
-    // ── Jump off cliff ────────────────────────────────────────────
-    private IEnumerator JumpRoutine()
-    {
-        Debug.Log("[MenuNPC] Jump routine started.");
-        _state = NPCState.Jumping;
+// ── Called when edge dialogue finishes ───────────────────────
+private void OnEdgeDialogueFinished()
+{
+    TextManager.Instance.OnDialogueEnded -= OnEdgeDialogueFinished;
+    StartCoroutine(JumpRoutine());
+}
 
-        yield return new WaitForSeconds(1f);
+// ── Jump off cliff ────────────────────────────────────────────
+private IEnumerator JumpRoutine()
+{
+    Debug.Log("[MenuNPC] Jump routine started.");
+    _state = NPCState.Jumping;
 
-        _rb.bodyType     = RigidbodyType2D.Dynamic;
-        _rb.gravityScale = gravityScale;
+    yield return new WaitForSeconds(0.5f);
 
-        yield return new WaitForFixedUpdate();
+    _rb.bodyType     = RigidbodyType2D.Dynamic;
+    _rb.gravityScale = gravityScale;
 
-        _rb.linearVelocity = new Vector2(walkToEdgeSpeed, jumpForce);
-        _animator.SetBool(ANIM_JUMPING, true);
-    }
+    yield return new WaitForFixedUpdate();
+
+    _rb.linearVelocity = new Vector2(walkToEdgeSpeed, jumpForce);
+    _animator.SetBool(ANIM_JUMPING, true);
+}
 
     // ── Check if off screen then transition ──────────────────────
     private void CheckOffScreen()
