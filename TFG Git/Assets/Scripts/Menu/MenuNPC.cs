@@ -43,6 +43,8 @@ public class MenuNPC : MonoBehaviour
     private int         _wanderDirection = 1;
     private Vector3     _wanderTarget;
 
+  
+
     void Awake()
     {
         _lastPos = transform.position;

@@ -55,6 +55,8 @@ public class MovementBehaviour : MonoBehaviour
     [Tooltip("How close to the screen edge before reversing wander direction.")]
     [SerializeField] private float screenEdgeMargin = 1f;
 
+
+
     // ── internals ──────────────────────────────────────────────────────────
     private int _currentWaypointIndex = 0;
 
@@ -81,13 +83,23 @@ public class MovementBehaviour : MonoBehaviour
 
     private Rigidbody2D    _rb;
     private SpriteRenderer _sprite;
-    private Animator       _animator;                          // ← added
+    private Animator       _animator;     
+
+    public event System.Action OnLastWaypointReached;       
+
+ // ── Footsteps ─────────────────────────────────────────────────────────────
+    private AudioSource _footstepSource;
+    private Vector3 _lastPos;
+    private float _distance;          
 
     void Awake()
     {
         _rb       = GetComponent<Rigidbody2D>();
         _sprite   = GetComponent<SpriteRenderer>();
-        _animator = GetComponent<Animator>();                  // ← added
+        _animator = GetComponent<Animator>();      
+
+        _footstepSource = GetComponent<AudioSource>();
+        _lastPos = transform.position;           
 
         _rb.freezeRotation = true;
         _wanderTimer = Random.Range(wanderWaitMin, wanderWaitMax);
@@ -95,7 +107,12 @@ public class MovementBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (_currentWaypointIndex >= waypoints.Length) return;
+        if (_currentWaypointIndex >= waypoints.Length)
+        {
+            OnLastWaypointReached?.Invoke();
+            return;
+        }
+
 
         // ── Post-land wait ─────────────────────────────────────────────────
         if (_waitingToLand)
@@ -221,6 +238,8 @@ public class MovementBehaviour : MonoBehaviour
         Vector2 direction = ((Vector2)CurrentTarget.position - (Vector2)transform.position).normalized;
         _rb.linearVelocity = direction * moveSpeed;
 
+        HandleFootsteps(transform.position);
+
         // Flip sprite
         if      (direction.x > 0) _sprite.flipX = false;
         else if (direction.x < 0) _sprite.flipX = true;
@@ -278,6 +297,7 @@ public class MovementBehaviour : MonoBehaviour
                     _wanderTarget,
                     wanderSpeed * Time.deltaTime
                 );
+                HandleFootsteps(transform.position);
 
                 if (Vector2.Distance(transform.position, _wanderTarget) < 0.05f)
                 {
@@ -287,6 +307,25 @@ public class MovementBehaviour : MonoBehaviour
                     _wanderTimer = Random.Range(wanderWaitMin, wanderWaitMax);
                 }
                 break;
+        }
+    }
+
+        // ── Footsteps ─────────────────────────────────────────────────────────────
+    private void HandleFootsteps(Vector3 currentPos)
+    {
+        _distance += Vector3.Distance(currentPos, _lastPos);
+        _lastPos = currentPos;
+
+        if (_distance > 0.5f)
+        {
+            // Don't restart the clip if it's still playing
+            if (_footstepSource.isPlaying)
+                return;
+
+            _footstepSource.pitch = Random.Range(0.95f, 1.05f);
+            _footstepSource.Play();
+
+            _distance = 0f;
         }
     }
 

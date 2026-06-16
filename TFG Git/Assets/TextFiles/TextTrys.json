@@ -9,11 +9,12 @@
       ]
     },
     {
-      "id": "bridge_finished",
+      "id": "light_upgrade",
       "speaker": "Soot Sprite",
       "lines": [
-        "We made it.",
-        "Let's continue."
+        "Ambient light levels low.",
+        "Adjusting lighting.",
+        "Proceed with caution."
       ]
     },{
       "id": "intro_01",
@@ -21,7 +22,14 @@
       "lines": [
         "Initializing scan sequence...",
         "Deploying assist drones."
-    ]
-  }
+      ]
+    },{
+      "id": "end_lvl1",
+      "speaker": "System",
+      "lines": [
+        "Finished this level scan sequence.",
+        "Proceeding to next level."
+      ]
+    }
   ]
 }

@@ -127,6 +127,15 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MainDrone_Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""01d3fc1e-a81a-4ae7-9bcf-6e8891637819"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -217,6 +226,17 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""Next_Text"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""10a34b07-7243-4efd-bf40-0f9fb76eae58"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MainDrone_Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -229,6 +249,7 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
         m_Drone_Interact_Button = m_Drone.FindAction("Interact_Button", throwIfNotFound: true);
         m_Drone_Interact_Bridge = m_Drone.FindAction("Interact_Bridge", throwIfNotFound: true);
         m_Drone_Next_Text = m_Drone.FindAction("Next_Text", throwIfNotFound: true);
+        m_Drone_MainDrone_Interact = m_Drone.FindAction("MainDrone_Interact", throwIfNotFound: true);
     }
 
     ~@MainDrone_Actions()
@@ -313,6 +334,7 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Drone_Interact_Button;
     private readonly InputAction m_Drone_Interact_Bridge;
     private readonly InputAction m_Drone_Next_Text;
+    private readonly InputAction m_Drone_MainDrone_Interact;
     /// <summary>
     /// Provides access to input actions defined in input action map "Drone".
     /// </summary>
@@ -340,6 +362,10 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Drone/Next_Text".
         /// </summary>
         public InputAction @Next_Text => m_Wrapper.m_Drone_Next_Text;
+        /// <summary>
+        /// Provides access to the underlying input action "Drone/MainDrone_Interact".
+        /// </summary>
+        public InputAction @MainDrone_Interact => m_Wrapper.m_Drone_MainDrone_Interact;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -378,6 +404,9 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
             @Next_Text.started += instance.OnNext_Text;
             @Next_Text.performed += instance.OnNext_Text;
             @Next_Text.canceled += instance.OnNext_Text;
+            @MainDrone_Interact.started += instance.OnMainDrone_Interact;
+            @MainDrone_Interact.performed += instance.OnMainDrone_Interact;
+            @MainDrone_Interact.canceled += instance.OnMainDrone_Interact;
         }
 
         /// <summary>
@@ -401,6 +430,9 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
             @Next_Text.started -= instance.OnNext_Text;
             @Next_Text.performed -= instance.OnNext_Text;
             @Next_Text.canceled -= instance.OnNext_Text;
+            @MainDrone_Interact.started -= instance.OnMainDrone_Interact;
+            @MainDrone_Interact.performed -= instance.OnMainDrone_Interact;
+            @MainDrone_Interact.canceled -= instance.OnMainDrone_Interact;
         }
 
         /// <summary>
@@ -469,5 +501,12 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnNext_Text(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MainDrone_Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMainDrone_Interact(InputAction.CallbackContext context);
     }
 }
