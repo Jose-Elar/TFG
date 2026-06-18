@@ -2,7 +2,7 @@
   "dialogues": [
     {
       "id": "intro_message",
-      "speaker": "Soot Sprite",
+      "speaker": "Scan_Drone",
       "lines": [
         "Starting Scouting Mission, to recolet data from the cave.",
         "Proceed with cave exploration."
@@ -10,7 +10,7 @@
     },
     {
       "id": "light_upgrade",
-      "speaker": "Soot Sprite",
+      "speaker": "Scan_Drone",
       "lines": [
         "Ambient light levels low.",
         "Adjusting lighting.",
@@ -18,14 +18,14 @@
       ]
     },{
       "id": "intro_01",
-      "speaker": "System",
+      "speaker": "Player_Drone",
       "lines": [
         "Initializing scan sequence...",
         "Deploying assist drones."
       ]
     },{
       "id": "end_lvl1",
-      "speaker": "System",
+      "speaker": "Scan_Drone",
       "lines": [
         "Finished this level scan sequence.",
         "Proceeding to next level."

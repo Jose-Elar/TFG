@@ -17,6 +17,20 @@ public class TextManager : MonoBehaviour
     [SerializeField] private float typingSpeed = 0.05f;
     [SerializeField] private float panelOpenDelay = 0.5f;
 
+    [Header("Speaker Colors")]
+    [Tooltip("Map each speaker name (must match the 'speaker' field in the JSON) to a color.")]
+    [SerializeField] private SpeakerColor[] speakerColors;
+
+    [Tooltip("Used when a speaker name isn't found in the list above.")]
+    [SerializeField] private Color defaultSpeakerColor = Color.white;
+
+    [Serializable]
+    public struct SpeakerColor
+    {
+        public string speaker;
+        public Color  color;
+    }
+
     public event Action OnDialogueEnded;
 
     private MainDrone_Actions mainDrone_Actions;
@@ -70,7 +84,6 @@ public class TextManager : MonoBehaviour
             "TextTrys.json"
         );
 
-
         if (!File.Exists(path))
         {
             Debug.LogError($"Dialogue file not found:\n{path}");
@@ -79,10 +92,7 @@ public class TextManager : MonoBehaviour
 
         string json = File.ReadAllText(path);
 
-
         dialogueDatabase = JsonUtility.FromJson<DialogueDatabase>(json);
-
-    
     }
 
     public void StartDialogue(string dialogueId)
@@ -103,9 +113,31 @@ public class TextManager : MonoBehaviour
 
         currentLine = 0;
 
+        // Apply the speaker's color for this whole dialogue
+        ApplySpeakerColor(currentDialogue.speaker);
+
         dialoguePanel.SetActive(true);
 
         StartCoroutine(BeginDialogueAfterDelay());
+    }
+
+    /// <summary>
+    /// Looks up the speaker in the Inspector-configured list and applies
+    /// the matching color to the dialogue text. Falls back to defaultSpeakerColor.
+    /// </summary>
+    private void ApplySpeakerColor(string speaker)
+    {
+        foreach (SpeakerColor entry in speakerColors)
+        {
+            if (entry.speaker == speaker)
+            {
+                dialogueText.color = entry.color;
+                return;
+            }
+        }
+
+        Debug.LogWarning($"[TextManager] No color set for speaker '{speaker}', using default.");
+        dialogueText.color = defaultSpeakerColor;
     }
 
     private IEnumerator BeginDialogueAfterDelay()
