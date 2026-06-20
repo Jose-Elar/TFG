@@ -15,6 +15,7 @@ TagManager:
   - Enemy
   - Proyectile
   - PickUp
+  - Door1
   layers:
   - Default
   - TransparentFX

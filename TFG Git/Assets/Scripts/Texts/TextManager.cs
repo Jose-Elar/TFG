@@ -13,6 +13,11 @@ public class TextManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
 
+    [Header("Continue Indicator")]
+    [SerializeField] private GameObject continueIndicator;   // ← added: the extra text/icon
+    [SerializeField] private float flickerInterval = 0.5f;   // ← added: time on/off
+    private Coroutine flickerCoroutine;
+
     [Header("Settings")]
     [SerializeField] private float typingSpeed = 0.05f;
     [SerializeField] private float panelOpenDelay = 0.5f;
@@ -62,6 +67,9 @@ public class TextManager : MonoBehaviour
         LoadDialogueDatabase();
 
         dialoguePanel.SetActive(false);
+
+        if (continueIndicator != null)
+            continueIndicator.SetActive(false);   // ← added
     }
 
     private void OnEnable()
@@ -113,7 +121,6 @@ public class TextManager : MonoBehaviour
 
         currentLine = 0;
 
-        // Apply the speaker's color for this whole dialogue
         ApplySpeakerColor(currentDialogue.speaker);
 
         dialoguePanel.SetActive(true);
@@ -121,10 +128,6 @@ public class TextManager : MonoBehaviour
         StartCoroutine(BeginDialogueAfterDelay());
     }
 
-    /// <summary>
-    /// Looks up the speaker in the Inspector-configured list and applies
-    /// the matching color to the dialogue text. Falls back to defaultSpeakerColor.
-    /// </summary>
     private void ApplySpeakerColor(string speaker)
     {
         foreach (SpeakerColor entry in speakerColors)
@@ -145,6 +148,7 @@ public class TextManager : MonoBehaviour
         dialogueStarting = true;
 
         dialogueText.text = "";
+        HideContinueIndicator();   // ← added
 
         yield return new WaitForSeconds(panelOpenDelay);
 
@@ -170,6 +174,8 @@ public class TextManager : MonoBehaviour
 
             isTyping = false;
 
+            ShowContinueIndicator();   // ← added: line finished early via skip
+
             return;
         }
 
@@ -190,6 +196,8 @@ public class TextManager : MonoBehaviour
         {
             StopCoroutine(typingCoroutine);
         }
+
+        HideContinueIndicator();   // ← added: hide while typing new line
 
         typingCoroutine =
             StartCoroutine(
@@ -215,6 +223,8 @@ public class TextManager : MonoBehaviour
         }
 
         isTyping = false;
+
+        ShowContinueIndicator();   // ← added: line finished naturally
     }
 
     private void EndDialogue()
@@ -223,6 +233,46 @@ public class TextManager : MonoBehaviour
         dialogueText.text = "";
         dialoguePanel.SetActive(false);
 
+        HideContinueIndicator();   // ← added
+
         OnDialogueEnded?.Invoke();
+    }
+
+    // ── Continue indicator flicker ──────────────────────────────────────
+    private void ShowContinueIndicator()
+    {
+        if (continueIndicator == null) return;
+
+        continueIndicator.SetActive(true);
+
+        if (flickerCoroutine != null)
+            StopCoroutine(flickerCoroutine);
+
+        flickerCoroutine = StartCoroutine(FlickerIndicator());
+    }
+
+    private void HideContinueIndicator()
+    {
+        if (continueIndicator == null) return;
+
+        if (flickerCoroutine != null)
+        {
+            StopCoroutine(flickerCoroutine);
+            flickerCoroutine = null;
+        }
+
+        continueIndicator.SetActive(false);
+    }
+
+    private IEnumerator FlickerIndicator()
+    {
+        while (true)
+        {
+            continueIndicator.SetActive(true);
+            yield return new WaitForSeconds(flickerInterval);
+
+            continueIndicator.SetActive(false);
+            yield return new WaitForSeconds(flickerInterval);
+        }
     }
 }

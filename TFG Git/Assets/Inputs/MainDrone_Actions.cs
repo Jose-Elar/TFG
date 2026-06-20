@@ -208,7 +208,7 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d10e69e0-f4b7-44ee-8c2f-761197a31fa7"",
-                    ""path"": ""<Keyboard>/o"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -230,7 +230,7 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""10a34b07-7243-4efd-bf40-0f9fb76eae58"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

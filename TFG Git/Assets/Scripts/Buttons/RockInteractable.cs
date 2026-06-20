@@ -5,11 +5,14 @@ using UnityEngine.Rendering.Universal;
 public class RockInteractable : MonoBehaviour
 {
     [Header("Animation")]
-    private Animator _animator;
-    private static readonly string PARAM_DEACTIVATED = "_deactivated";
+    private Animator _computerAnimator;
+    [SerializeField] private Animator doorAnimator;
+    [SerializeField] private string   doorAnimationClipName = "Activate_Anim";
+    private static readonly string PARAM_ACTIVATE1 = "_activate";
+    private static readonly string PARAM_ACTIVATE2 = "_deactivated";
 
     [Header("Audio")]
-    [SerializeField] private AudioSource earthRumbleSource;
+    [SerializeField] private AudioSource gateMechanismSource;
 
     [Header("Lights")]
     [SerializeField] private Light2D idleLight;
@@ -17,14 +20,17 @@ public class RockInteractable : MonoBehaviour
     [SerializeField] private float   flickerDuration = 0.8f;
     [SerializeField] private int     flickerCount    = 6;
 
-    [Header("Rock Tilemap")]
-    [SerializeField] private GameObject rockTilemap;
+    [Header("Door Collider")]
+    [SerializeField] private BoxCollider2D doorCollider;
+
+    [Header("Extra Collider")]
+    [SerializeField] private BoxCollider2D extraCollider;   // ← added
 
     private bool _activated = false;
 
     void Awake()
     {
-        _animator = GetComponent<Animator>();
+        _computerAnimator = GetComponent<Animator>();
 
         idleLight.enabled        = true;
         deactivatedLight.enabled = false;
@@ -50,17 +56,28 @@ public class RockInteractable : MonoBehaviour
     {
         if (_activated) return;
         _activated = true;
-        StartCoroutine(DeactivateSequence());
+        StartCoroutine(ActivateSequence());
     }
 
-    private IEnumerator DeactivateSequence()
+    private IEnumerator ActivateSequence()
     {
-        // Phase 1 — Earth rumble
-        if (earthRumbleSource != null)
-            earthRumbleSource.Play();
+        // Phase 1 — Gate mechanism sound
+        if (gateMechanismSource != null)
+            gateMechanismSource.Play();
 
-        // Phase 2 — Switch animation
-        _animator.SetBool(PARAM_DEACTIVATED, true);
+        // Phase 2 — Switch both animations at the same time
+        _computerAnimator.SetBool(PARAM_ACTIVATE2, true);
+
+        if (doorAnimator != null)
+            doorAnimator.SetBool(PARAM_ACTIVATE1, true);
+
+        // Phase 2.5 — Disable door collider while it opens
+        if (doorCollider != null)
+            doorCollider.enabled = false;
+
+        // Phase 2.6 — Disable extra collider immediately
+        if (extraCollider != null)
+            extraCollider.enabled = false;   // ← added
 
         // Phase 3 — Turn off idle light
         idleLight.enabled = false;
@@ -71,9 +88,13 @@ public class RockInteractable : MonoBehaviour
         // Phase 5 — Stay on permanently
         deactivatedLight.enabled = true;
 
-        // Phase 6 — Disable rocks
-        if (rockTilemap != null)
-            rockTilemap.SetActive(false);
+        // Phase 6 — Wait for door animation to finish, then re-enable collider
+        if (doorAnimator != null && doorCollider != null)
+        {
+            float doorAnimLength = GetAnimationLength(doorAnimator, doorAnimationClipName);
+            yield return new WaitForSeconds(doorAnimLength);
+            doorCollider.enabled = true;
+        }
 
         Debug.Log("[RockInteractable] Sequence complete.");
     }
@@ -89,5 +110,15 @@ public class RockInteractable : MonoBehaviour
         }
 
         light2D.enabled = true;
+    }
+
+    private float GetAnimationLength(Animator animator, string clipName)
+    {
+        foreach (AnimationClip clip in animator.runtimeAnimatorController.animationClips)
+        {
+            if (clip.name == clipName)
+                return clip.length;
+        }
+        return 1f; // fallback if not found
     }
 }

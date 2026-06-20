@@ -119,7 +119,7 @@ private void WalkToEdge()
         _state = NPCState.WaitingForDialogue;               // ← new state
 
         TextManager.Instance.OnDialogueEnded += OnEdgeDialogueFinished;
-        TextManager.Instance.StartDialogue("intro_message");
+        TextManager.Instance.StartDialogue("startingGame_message");
     }
 }
 
