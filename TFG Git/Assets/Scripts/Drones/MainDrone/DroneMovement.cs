@@ -19,9 +19,8 @@ public class DroneMovement : MonoBehaviour
 
     private bool _nearBridge      = false;
     private bool _isScanning      = false;
-    private bool _nearInteractable = false;                         // ← added
+    private bool _nearInteractable = false;                 
 
-    private RockInteractable _nearbyInteractable = null;           // ← added
 
     public event Action OnBridgeAction;
 
@@ -41,7 +40,7 @@ public class DroneMovement : MonoBehaviour
         mainDrone_Actions.Drone.Movement.canceled            += Movement_canceled;
         mainDrone_Actions.Drone.Interact_Button.performed    += Interact_performed;
         mainDrone_Actions.Drone.Interact_Bridge.performed    += BridgeAction_performed;
-        mainDrone_Actions.Drone.MainDrone_Interact.performed += MainInteract_performed; // ← added
+        mainDrone_Actions.Drone.MainDrone_Interact.performed += MainInteract_performed; 
     }
 
     void OnDestroy()
@@ -50,7 +49,7 @@ public class DroneMovement : MonoBehaviour
         mainDrone_Actions.Drone.Movement.canceled            -= Movement_canceled;
         mainDrone_Actions.Drone.Interact_Button.performed    -= Interact_performed;
         mainDrone_Actions.Drone.Interact_Bridge.performed    -= BridgeAction_performed;
-        mainDrone_Actions.Drone.MainDrone_Interact.performed -= MainInteract_performed; // ← added
+        mainDrone_Actions.Drone.MainDrone_Interact.performed -= MainInteract_performed; 
     }
 
     // ── Input callbacks ────────────────────────────────────────────────────
@@ -75,7 +74,7 @@ public class DroneMovement : MonoBehaviour
         StartCoroutine(ScanRoutine());
     }
 
-    private void MainInteract_performed(InputAction.CallbackContext context) // ← added
+    private void MainInteract_performed(InputAction.CallbackContext context) 
     {
         if (!context.ReadValueAsButton()) return;
         if (_isScanning) return;
@@ -147,7 +146,9 @@ public class DroneMovement : MonoBehaviour
         _nearBridge = inRange;
     }
 
-    public void SetNearbyInteractable(RockInteractable interactable) // ← added
+    private IInteractable _nearbyInteractable = null;
+   
+    public void SetNearbyInteractable(IInteractable  interactable) 
     {
         _nearbyInteractable  = interactable;
         _nearInteractable    = interactable != null;

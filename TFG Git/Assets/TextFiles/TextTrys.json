@@ -47,7 +47,7 @@
       "lines": [
         "Remember to not leave the proximity of the walker drone.",
         "Possible discharge of main functions",
-        "if prolonged distance is maintained.",
+        "If prolonged distance is maintained.",
         "Recommend maintaining proximity, unless instructed."
       ]
     },
@@ -87,6 +87,54 @@
       "lines": [
         "Sector scan complete.",
         "Proceeding to next level."
+      ]
+    },
+    {
+      "id": "intro_02",
+      "speaker": "Walker_Drone",
+      "lines": [
+        "Lower Altitude Adquired.",
+        "Signal strength: High.",
+        "Proceed with caution.",
+        "Laboratory facility detected nearby."
+      ]
+    },
+    {
+      "id": "waiting_on_door2",
+      "speaker": "Walker_Drone",
+      "lines": [
+        "Laboratory facility detected.",
+        "Entrance Obstructed.",
+        "Awaiting external override.",
+        "Activated Numeral Pad.",
+        "Input required to unlock the door."
+      ]
+    },
+    {
+      "id": "hint_activate_generator",
+      "speaker": "Walker_Drone",
+      "lines": [
+        "Required Activation of Energy Generator.",
+        "Enegery Insuficient to power up the facility",
+        "Required Drone Activation."
+      ]
+    },
+    {
+      "id": "activate_Lights",
+      "speaker": "Lab_Computer",
+      "lines": [
+        "Back Up Energy Generator activated.",
+        "Systems back online.",
+        "Welcome to the ******** facility."
+      ]
+    },
+    {
+      "id": "end_game",
+      "speaker": "Lab_Computer",
+      "lines": [
+        "ALARM,ALARM,ALARM.",
+        "INTRUDER DETECTED.",
+        "DEPLOYING DEFENSE PROTOCOLS."
       ]
     }
   ]

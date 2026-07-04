@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class RockInteractable : MonoBehaviour
+public class RockInteractable : MonoBehaviour, IInteractable
 {
     [Header("Animation")]
     private Animator _computerAnimator;

@@ -1,17 +1,31 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class BridgeEvents : MonoBehaviour
 {
     [Header("Bridge Object")]
     [Tooltip("The Tilemap child that has the BridgeReveal script.")]
-    [SerializeField] private BridgeReveal bridgeReveal;        // ← changed
+    [SerializeField] private BridgeReveal bridgeReveal;
+
+    [Header("Indicator Light")]
+    [SerializeField] private Light2D indicatorLight;
+    [SerializeField] private float pulseSpeed = 1f;  // velocidad de la transición suave
+
+    private bool _lightDeactivated = false;
 
     public event Action OnBridgePressed;
 
     private DroneMovement _trackedDrone;
 
-    // Called by GroundDrone when it arrives at the bridge
+    void Update()
+    {
+        if (_lightDeactivated || indicatorLight == null) return;
+
+        // Oscila suavemente entre 0 y 1 usando una onda senoidal
+        indicatorLight.intensity = (Mathf.Sin(Time.time * pulseSpeed * Mathf.PI) + 1f) / 2f;
+    }
+
     public void RevealBridge()
     {
         if (bridgeReveal == null)
@@ -20,7 +34,14 @@ public class BridgeEvents : MonoBehaviour
             return;
         }
 
-        bridgeReveal.RevealBridge();                           // ← changed
+        if (indicatorLight != null)
+        {
+            _lightDeactivated = true;
+            indicatorLight.intensity = 0f;
+            indicatorLight.enabled = false;
+        }
+
+        bridgeReveal.RevealBridge();
         Debug.Log("[BridgeEvents] Bridge reveal triggered.");
     }
 

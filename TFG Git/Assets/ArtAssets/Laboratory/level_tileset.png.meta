@@ -194,10 +194,10 @@ TextureImporter:
       name: level_tileset_3
       rect:
         serializedVersion: 2
-        x: 159
+        x: 192
         y: 11
-        width: 66
-        height: 8
+        width: 33
+        height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,7 +219,7 @@ TextureImporter:
         x: 233
         y: 11
         width: 14
-        height: 7
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -432,6 +432,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: level_tileset_14
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 12
+        width: 32
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7751071f57504f84a8990c7a8a459c47
+      internalID: 511059924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_tileset_15
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 12
+        width: 12
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef7c952085e36548b7ae3ee9cf38e45
+      internalID: -2065422287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -452,6 +496,8 @@ TextureImporter:
       level_tileset_11: -1411745004
       level_tileset_12: 1035681170
       level_tileset_13: 1215267836
+      level_tileset_14: 511059924
+      level_tileset_15: -2065422287
       level_tileset_2: 1151280542118277349
       level_tileset_3: -8261023128934220580
       level_tileset_4: -7438090563304642252

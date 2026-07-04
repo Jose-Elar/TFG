@@ -9,6 +9,20 @@ public class TextManager : MonoBehaviour
 {
     public static TextManager Instance;
 
+    #if UNITY_EDITOR
+[UnityEditor.InitializeOnLoadMethod]
+private static void ResetStaticInstance()
+{
+    UnityEditor.EditorApplication.playModeStateChanged += (state) =>
+    {
+        if (state == UnityEditor.PlayModeStateChange.ExitingPlayMode)
+        {
+            Instance = null;
+        }
+    };
+}
+#endif
+
     [Header("UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
@@ -74,12 +88,16 @@ public class TextManager : MonoBehaviour
 
     private void OnEnable()
     {
+        if (mainDrone_Actions == null) return;
+
         mainDrone_Actions.Drone.Enable();
         mainDrone_Actions.Drone.Next_Text.performed += Next_Text_performed;
     }
 
     private void OnDisable()
     {
+        if (mainDrone_Actions == null) return;
+
         mainDrone_Actions.Drone.Next_Text.performed -= Next_Text_performed;
         mainDrone_Actions.Drone.Disable();
     }

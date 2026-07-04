@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class LevelStart1Cutscene : MonoBehaviour
+public class LevelStartCutscene : MonoBehaviour
 {
     [Header("Characters")]
     [SerializeField] private MovementBehaviour npc;
