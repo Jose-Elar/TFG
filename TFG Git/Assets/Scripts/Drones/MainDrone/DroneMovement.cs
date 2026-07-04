@@ -43,6 +43,7 @@ public class DroneMovement : MonoBehaviour
         mainDrone_Actions.Drone.MainDrone_Interact.performed += MainInteract_performed; 
     }
 
+
     void OnDestroy()
     {
         mainDrone_Actions.Drone.Movement.performed           -= Movement_performed;
@@ -50,6 +51,9 @@ public class DroneMovement : MonoBehaviour
         mainDrone_Actions.Drone.Interact_Button.performed    -= Interact_performed;
         mainDrone_Actions.Drone.Interact_Bridge.performed    -= BridgeAction_performed;
         mainDrone_Actions.Drone.MainDrone_Interact.performed -= MainInteract_performed; 
+
+
+        mainDrone_Actions.Drone.Disable();
     }
 
     // ── Input callbacks ────────────────────────────────────────────────────

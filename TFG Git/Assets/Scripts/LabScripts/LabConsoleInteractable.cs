@@ -11,6 +11,7 @@ public class LabConsoleInteractable : MonoBehaviour, IInteractable
 
     [Header("Audio")]
     [SerializeField] private AudioSource lightsOnAudioSource;
+    [SerializeField] private AudioSource lightsFlickerAudioSource;
 
     [Header("Lamps to Activate")]
     [SerializeField] private LampStateLight[] lampsToActivate;   // ← añadido
@@ -56,8 +57,13 @@ public class LabConsoleInteractable : MonoBehaviour, IInteractable
 
         _activated = true;
 
-        if (lightsOnAudioSource != null)
+        if (lightsOnAudioSource != null && lightsFlickerAudioSource != null)
+        {
+            lightsFlickerAudioSource.Stop();
             lightsOnAudioSource.Play();
+
+        }
+
 
         // ── Activar las lámparas y pasarlas a FullyOn ────────────────
         foreach (LampStateLight lamp in lampsToActivate)

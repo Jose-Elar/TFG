@@ -1635,8 +1635,8 @@ GameObject:
   m_Component:
   - component: {fileID: 48247039}
   - component: {fileID: 48247040}
-  m_Layer: 0
-  m_Name: Start (1)
+  m_Layer: 12
+  m_Name: End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1651,7 +1651,7 @@ Transform:
   m_GameObject: {fileID: 48247038}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.77, y: -0.75, z: 0}
+  m_LocalPosition: {x: 11.12, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1687,7 +1687,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1985,7 +1985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 783167096313553200, guid: 435c50c309eb0ce48a6f6208f2580289, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.6
+      value: 41.94
       objectReference: {fileID: 0}
     - target: {fileID: 783167096313553200, guid: 435c50c309eb0ce48a6f6208f2580289, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2666,7 +2666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &227381996
 SpriteRenderer:
   serializedVersion: 2
@@ -3374,9 +3374,9 @@ MonoBehaviour:
   flickerSpeed: 7
   fullyOnIntensity: 0.9
   alarmColor: {r: 1, g: 0, b: 0, a: 1}
-  alarmMin: 0.6
-  alarmMax: 0.9
-  alarmPulseSpeed: 2
+  alarmMin: 1.4
+  alarmMax: 10
+  alarmPulseSpeed: 3
 --- !u!1 &360789645
 GameObject:
   m_ObjectHideFlags: 0
@@ -3750,9 +3750,9 @@ MonoBehaviour:
   flickerSpeed: 7
   fullyOnIntensity: 0.9
   alarmColor: {r: 1, g: 0, b: 0, a: 1}
-  alarmMin: 0.6
-  alarmMax: 0.9
-  alarmPulseSpeed: 2
+  alarmMin: 1.4
+  alarmMax: 10
+  alarmPulseSpeed: 3
 --- !u!1 &387121235
 GameObject:
   m_ObjectHideFlags: 0
@@ -18553,9 +18553,9 @@ MonoBehaviour:
   flickerSpeed: 7
   fullyOnIntensity: 0.9
   alarmColor: {r: 1, g: 0, b: 0, a: 1}
-  alarmMin: 0.6
-  alarmMax: 0.9
-  alarmPulseSpeed: 2
+  alarmMin: 1.4
+  alarmMax: 10
+  alarmPulseSpeed: 3
 --- !u!1 &862720299
 GameObject:
   m_ObjectHideFlags: 0
@@ -19231,7 +19231,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -19322,6 +19322,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1964455808631039314, guid: 435c50c309eb0ce48a6f6208f2580289, type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 1964455808631039314, guid: 435c50c309eb0ce48a6f6208f2580289, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 1.17
+      objectReference: {fileID: 0}
     - target: {fileID: 5167181002954750829, guid: 435c50c309eb0ce48a6f6208f2580289, type: 3}
       propertyPath: m_Name
       value: SavePoint2
@@ -19411,6 +19419,7 @@ MonoBehaviour:
   arrivalDialogueId: hint_activate_generator
   activationDialogueId: activate_Lights
   lightsOnAudioSource: {fileID: 1447569996}
+  lightsFlickerAudioSource: {fileID: 1304647715}
   lampsToActivate:
   - {fileID: 322897436}
   - {fileID: 1402837470}
@@ -20550,9 +20559,9 @@ MonoBehaviour:
   flickerSpeed: 7
   fullyOnIntensity: 0.9
   alarmColor: {r: 1, g: 0, b: 0, a: 1}
-  alarmMin: 0.6
-  alarmMax: 0.9
-  alarmPulseSpeed: 2
+  alarmMin: 1.4
+  alarmMax: 10
+  alarmPulseSpeed: 3
 --- !u!1 &1239235299
 GameObject:
   m_ObjectHideFlags: 0
@@ -20887,7 +20896,7 @@ Transform:
   m_GameObject: {fileID: 1296388305}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.58, y: -4.93, z: 0}
+  m_LocalPosition: {x: 45.05, y: -4.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22006,7 +22015,7 @@ Transform:
   m_GameObject: {fileID: 1377884395}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.44, y: 7.69, z: 0}
+  m_LocalPosition: {x: -31.44, y: 7.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22042,7 +22051,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -22352,9 +22361,9 @@ MonoBehaviour:
   flickerSpeed: 7
   fullyOnIntensity: 0.9
   alarmColor: {r: 1, g: 0, b: 0, a: 1}
-  alarmMin: 0.6
-  alarmMax: 0.9
-  alarmPulseSpeed: 2
+  alarmMin: 1.4
+  alarmMax: 10
+  alarmPulseSpeed: 3
 --- !u!1 &1404272909
 GameObject:
   m_ObjectHideFlags: 0
@@ -23166,9 +23175,9 @@ MonoBehaviour:
   flickerSpeed: 7
   fullyOnIntensity: 0.9
   alarmColor: {r: 1, g: 0, b: 0, a: 1}
-  alarmMin: 0.6
-  alarmMax: 0.9
-  alarmPulseSpeed: 2
+  alarmMin: 1.4
+  alarmMax: 10
+  alarmPulseSpeed: 3
 --- !u!1 &1549245139
 GameObject:
   m_ObjectHideFlags: 0
@@ -24274,9 +24283,9 @@ MonoBehaviour:
   flickerSpeed: 7
   fullyOnIntensity: 0.9
   alarmColor: {r: 1, g: 0, b: 0, a: 1}
-  alarmMin: 0.6
-  alarmMax: 0.9
-  alarmPulseSpeed: 2
+  alarmMin: 1.4
+  alarmMax: 10
+  alarmPulseSpeed: 3
 --- !u!1 &1727347308
 GameObject:
   m_ObjectHideFlags: 0
@@ -31234,12 +31243,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3021400320674605454, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
       propertyPath: nextSceneName
+      value: End_Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021400320674605454, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
+      propertyPath: alarmAudioSource
+      value: 
+      objectReference: {fileID: 567712603}
+    - target: {fileID: 3021400320674605454, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
+      propertyPath: finalLevelSceneName
       value: Level2
       objectReference: {fileID: 0}
     - target: {fileID: 3021400320674605454, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
-      propertyPath: finalLevelSceneName
-      value: Lvl2
+      propertyPath: alarmLamps.Array.size
+      value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3021400320674605454, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
+      propertyPath: 'alarmLamps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 322897436}
+    - target: {fileID: 3021400320674605454, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
+      propertyPath: 'alarmLamps.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1402837470}
+    - target: {fileID: 3021400320674605454, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
+      propertyPath: 'alarmLamps.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1548236182}
+    - target: {fileID: 3021400320674605454, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
+      propertyPath: 'alarmLamps.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1721498629}
+    - target: {fileID: 3021400320674605454, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
+      propertyPath: 'alarmLamps.Array.data[4]'
+      value: 
+      objectReference: {fileID: 384691857}
+    - target: {fileID: 3021400320674605454, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
+      propertyPath: 'alarmLamps.Array.data[5]'
+      value: 
+      objectReference: {fileID: 859282879}
+    - target: {fileID: 3021400320674605454, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
+      propertyPath: 'alarmLamps.Array.data[6]'
+      value: 
+      objectReference: {fileID: 1208896769}
     - target: {fileID: 3151165327803163728, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
       propertyPath: m_Size.y
       value: 2.0039577
@@ -31247,6 +31292,10 @@ PrefabInstance:
     - target: {fileID: 3151165327803163728, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
       propertyPath: m_Offset.y
       value: -0.05235046
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434195210597697457, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7808530075723208872, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
       propertyPath: m_Name
@@ -31314,7 +31363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8984376650670428502, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.84
+      value: -4.71
       objectReference: {fileID: 0}
     - target: {fileID: 8984376650670428502, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
       propertyPath: m_LocalPosition.y

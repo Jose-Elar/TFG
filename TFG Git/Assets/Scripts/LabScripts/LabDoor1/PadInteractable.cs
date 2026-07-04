@@ -52,6 +52,9 @@ public class PadInteractable : MonoBehaviour, IInteractable
         if (doorCollider != null)
             doorCollider.enabled = false;
 
+        if (doorLight != null)
+            doorLight.enabled = false;
+
         // ── Detener completamente todos los audio sources indicados ──
         foreach (AudioSource source in audioSourcesToStop)
         {

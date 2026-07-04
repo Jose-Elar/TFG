@@ -13,15 +13,19 @@ public class LevelEndSequence : MonoBehaviour
     [SerializeField] private float jumpForce    = 8f;
     [SerializeField] private float gravityScale = 3f;
 
-    [Header("Scene Transition")]
-    [SerializeField] private string nextSceneName       = "Level2";
-    [SerializeField] private float  offScreenDelay      = 0.5f;
+    [Header("Level 1 — Scene Transition")]
+    [SerializeField] private string nextSceneName  = "Level2";
+    [SerializeField] private float  offScreenDelay = 0.5f;
 
-    [Header("Final Scene Settings")]
-    [Tooltip("Nombre exacto de la escena en la que esta secuencia debe terminar en los créditos en vez de saltar.")]
+    [Header("Level 2 — Final Scene Settings")]
+    [Tooltip("Nombre exacto de la escena final. Si la escena activa coincide con este nombre, se ejecuta la secuencia final.")]
     [SerializeField] private string finalLevelSceneName = "Level2";
-    [SerializeField] private string finalSceneName       = "End_Scene";
-    [SerializeField] private float  finalSceneDelay      = 2f;
+    [SerializeField] private string finalSceneName      = "End_Scene";
+    [SerializeField] private float  finalSceneDelay     = 2f;
+
+    [Header("Level 2 — Alarm Sequence")]
+    [SerializeField] private AudioSource       alarmAudioSource;
+    [SerializeField] private LampStateLight[]  alarmLamps;
 
     private Rigidbody2D    _rb;
     private SpriteRenderer _sprite;
@@ -32,8 +36,8 @@ public class LevelEndSequence : MonoBehaviour
 
     void Awake()
     {
-        _rb       = npc.GetComponent<Rigidbody2D>();
-        _sprite   = npc.GetComponent<SpriteRenderer>();
+        _rb      = npc.GetComponent<Rigidbody2D>();
+        _sprite  = npc.GetComponent<SpriteRenderer>();
         _animator = npc.GetComponent<Animator>();
     }
 
@@ -57,10 +61,21 @@ public class LevelEndSequence : MonoBehaviour
     {
         npc.OnLastWaypointReached -= OnLastWaypointReached;
         npc.enabled = false;
-        StartCoroutine(EndSequence());
+
+        // ── Decide la rama según la escena activa ──────────────────
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (currentScene == finalLevelSceneName)
+            StartCoroutine(Level2EndSequence());
+        else
+            StartCoroutine(Level1EndSequence());
     }
 
-    private IEnumerator EndSequence()
+    // ════════════════════════════════════════════════════════════════
+    // LEVEL 1 — Caminar al borde → diálogo → salto → transición
+    // ════════════════════════════════════════════════════════════════
+
+    private IEnumerator Level1EndSequence()
     {
         yield return StartCoroutine(WalkToEdge());
 
@@ -70,20 +85,10 @@ public class LevelEndSequence : MonoBehaviour
 
         yield return new WaitUntil(() => dialogueDone);
 
-        // ── Decide el comportamiento según la escena activa ────────
-        string currentScene = SceneManager.GetActiveScene().name;
-
-        if (currentScene == finalLevelSceneName)
-        {
-            yield return StartCoroutine(FinalSceneRoutine());
-        }
-        else
-        {
-            yield return StartCoroutine(JumpRoutine());
-        }
+        yield return StartCoroutine(JumpRoutine());
     }
 
-    // ── Caminar hasta el borde del precipicio ──────────────────────
+    // ── Caminar hasta el borde ────────────────────────────────────
     private IEnumerator WalkToEdge()
     {
         while (true)
@@ -102,9 +107,7 @@ public class LevelEndSequence : MonoBehaviour
 
             npc.HandleFootsteps(npc.transform.position);
 
-            float distance = Vector2.Distance(npc.transform.position, cliffEdge.position);
-
-            if (distance <= 0.5f)
+            if (Vector2.Distance(npc.transform.position, cliffEdge.position) <= 0.5f)
             {
                 _rb.linearVelocity = Vector2.zero;
                 _animator.SetBool("isWalking", false);
@@ -115,7 +118,7 @@ public class LevelEndSequence : MonoBehaviour
         }
     }
 
-    // ── Caso normal: salto al precipicio + transición offscreen ────
+    // ── Salto al precipicio ───────────────────────────────────────
     private IEnumerator JumpRoutine()
     {
         yield return new WaitForSeconds(0.5f);
@@ -133,7 +136,7 @@ public class LevelEndSequence : MonoBehaviour
         Debug.Log("[LevelEndSequence] NPC jumped off cliff.");
     }
 
-    // ── Comprueba si el NPC ha salido de pantalla tras el salto ─────
+    // ── Comprueba si el NPC salió de pantalla ────────────────────
     private void CheckOffScreen()
     {
         Camera cam = Camera.main;
@@ -159,13 +162,42 @@ public class LevelEndSequence : MonoBehaviour
         SceneTransition.Instance.LoadScene(nextSceneName);
     }
 
-    // ── Caso especial: estamos en Level2, vamos a la escena final ───
-    private IEnumerator FinalSceneRoutine()
-    {
-        Debug.Log("[LevelEndSequence] Final level reached, going to End_Scene.");
 
+    private IEnumerator Level2EndSequence()
+    {
+        // Phase 1 — Activar sonido de alarma
+        if (alarmAudioSource != null)
+        {
+            Debug.Log("[LevelEndSequence] Playing alarm sound.");
+            alarmAudioSource.Play(); 
+        }
+
+
+        // Phase 2 — Cambiar todas las lámparas a estado Alarm
+        foreach (LampStateLight lamp in alarmLamps)
+        {
+            Debug.Log("No Funciona" + lamp.name);
+            if (lamp != null)
+            {
+                Debug.Log("Funciona" + lamp.name);
+                lamp.SetState(LampStateLight.LightState.Alarm);
+            }
+
+        }
+
+        // Phase 3 — Disparar el diálogo final y esperar a que termine
+        bool dialogueDone = false;
+        TextManager.Instance.OnDialogueEnded += () => dialogueDone = true;
+        TextManager.Instance.StartDialogue(endDialogueId);
+
+        yield return new WaitUntil(() => dialogueDone);
+
+        // Phase 4 — Esperar finalSceneDelay segundos
         yield return new WaitForSeconds(finalSceneDelay);
 
+        // Phase 5 — Cargar la escena final
         SceneTransition.Instance.LoadScene(finalSceneName);
+
+        Debug.Log("[LevelEndSequence] Final scene loaded.");
     }
 }

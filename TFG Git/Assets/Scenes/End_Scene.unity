@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 663892941}
   - component: {fileID: 663892943}
   - component: {fileID: 663892942}
+  - component: {fileID: 663892944}
   m_Layer: 5
   m_Name: TextoCreditos
   m_TagString: Untagged
@@ -335,6 +336,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663892940}
   m_CullTransparentMesh: 1
+--- !u!114 &663892944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663892940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23888e5ad76f954d9a85d1999637ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TitleFlicker
+  flickerText: {fileID: 663892942}
+  flickerSpeed: 4
 --- !u!1 &970987333
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +465,7 @@ GameObject:
   - component: {fileID: 1143855070}
   - component: {fileID: 1143855072}
   - component: {fileID: 1143855071}
+  - component: {fileID: 1143855073}
   m_Layer: 5
   m_Name: Thanks
   m_TagString: Untagged
@@ -580,6 +596,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143855069}
   m_CullTransparentMesh: 1
+--- !u!114 &1143855073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143855069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23888e5ad76f954d9a85d1999637ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TitleFlicker
+  flickerText: {fileID: 1143855071}
+  flickerSpeed: 4
 --- !u!1 &1274341908
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,6 +788,7 @@ GameObject:
   - component: {fileID: 2093237603}
   - component: {fileID: 2093237605}
   - component: {fileID: 2093237604}
+  - component: {fileID: 2093237606}
   m_Layer: 5
   m_Name: DemoText
   m_TagString: Untagged
@@ -884,6 +915,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2093237602}
   m_CullTransparentMesh: 1
+--- !u!114 &2093237606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093237602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23888e5ad76f954d9a85d1999637ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TitleFlicker
+  flickerText: {fileID: 2093237604}
+  flickerSpeed: 4
 --- !u!1 &2102311458
 GameObject:
   m_ObjectHideFlags: 0
