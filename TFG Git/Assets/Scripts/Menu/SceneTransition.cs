@@ -18,6 +18,11 @@ public class SceneTransition : MonoBehaviour
     [Header("Opening Fade")]
     [SerializeField] private float openFadeDuration = 0.8f;
 
+
+    private MainDrone_Actions _globalActions;
+
+
+  private System.Action<UnityEngine.InputSystem.InputAction.CallbackContext> _quitAction;
     void Awake()
     {
         if (Instance == null)
@@ -36,18 +41,39 @@ public class SceneTransition : MonoBehaviour
         SetScanLinePosition(-screenHalfWidth);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        _quitAction = _ => QuitGame();
+
+        _globalActions = new MainDrone_Actions();
+        _globalActions.Enable();
+        _globalActions.Drone.Quit.performed += _ => QuitGame();
     }
 
     void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+
+    if (_globalActions != null)
+    {
+        _globalActions.Drone.Quit.performed -= _quitAction;
+        _globalActions.Disable();
     }
+    }
+
+    private void QuitGame()
+    {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
+        Application.Quit();
+        #endif
+    }
+
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "StartingMenu")
         {
-            // El menú nunca tiene transición de apertura
             SetOverlayAlpha(0f);
             SetScanLineAlpha(0f);
             SetScanLinePosition(-screenHalfWidth);
@@ -57,13 +83,13 @@ public class SceneTransition : MonoBehaviour
         StartCoroutine(OpenFadeOnly());
     }
 
-    // ── Llamar para transicionar a una nueva escena ────────────────
+
     public void LoadScene(string sceneName)
     {
         StartCoroutine(CloseWithScanLine(sceneName));
     }
 
-    private float blackScreenHoldTime = 0.3f; // Tiempo que la pantalla permanece negra antes de abrir
+    private float blackScreenHoldTime = 0.3f;
     // ── Apertura simple: solo fade del overlay, sin línea ──────────
     private IEnumerator OpenFadeOnly()
     {
@@ -88,7 +114,6 @@ public class SceneTransition : MonoBehaviour
         SetOverlayAlpha(0f);
     }
 
-    // ── Cierre con escaneo: la línea recorre la pantalla ────────────
     private IEnumerator CloseWithScanLine(string sceneName)
     {
         float elapsed = 0f;
@@ -114,14 +139,12 @@ public class SceneTransition : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    // ── Curva de alpha: sube al entrar, se mantiene, baja al salir ──
     private float GetLineAlphaCurve(float t)
     {
         float curve = 1f - Mathf.Abs((t * 2f) - 1f);
         return curve * scanLineMaxAlpha;
     }
 
-    // ── Helpers ──────────────────────────────────────────────────────
     private void SetOverlayAlpha(float alpha)
     {
         if (fadeOverlay == null) return;

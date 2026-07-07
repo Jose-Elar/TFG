@@ -41,7 +41,7 @@ public class LevelStartCutscene : MonoBehaviour
 
     private IEnumerator CutsceneRoutine()
     {
-        // ── Phase 1 — Lock everything ──────────────────────────────
+        //  Phase 1 
 
         background.DisableParallax();
 
@@ -58,7 +58,7 @@ public class LevelStartCutscene : MonoBehaviour
 
         cameraScript.enabled = false;
 
-        // ── Phase 2 — Snap camera to NPC ──────────────────────────
+        //Phase 2 
 
         mainCamera.transform.position = new Vector3(
             npc.transform.position.x,
@@ -68,11 +68,11 @@ public class LevelStartCutscene : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        // ── Phase 3 — NPC looks around ────────────────────────────
+        //  Phase 3 
 
         yield return StartCoroutine(NPCLookAround());
 
-        // ── Phase 4 — Dialogue ────────────────────────────────────
+        //  Phase 4 
 
         bool dialogueDone = false;
 
@@ -85,7 +85,7 @@ public class LevelStartCutscene : MonoBehaviour
 
         TextManager.Instance.OnDialogueEnded -= dialogueEndedHandler;
 
-        // ── Phase 5 — Zoom out AFTER dialogue ─────────────────────
+        //  Phase 5 
 
         yield return StartCoroutine(
             ZoomCameraAndRestoreY(
@@ -98,7 +98,7 @@ public class LevelStartCutscene : MonoBehaviour
         background.EnableParallax();
         cameraScript.enabled = true;
 
-        // ── Phase 6 — Spawn drones ────────────────────────────────
+        // Phase 6 
 
         yield return StartCoroutine(SpawnDronesAndStart());
     }
@@ -129,7 +129,7 @@ public class LevelStartCutscene : MonoBehaviour
         Debug.Log("[LevelStartCutscene] Cutscene complete — game started!");
     }
 
-    // ── Flicker a GameObject in ───────────────────────────────────
+    //Flicker a GameObject in
 
     private IEnumerator FlickerIn(GameObject obj)
     {
@@ -153,7 +153,7 @@ public class LevelStartCutscene : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
     }
 
-    // ── Zoom and restore Y simultaneously ─────────────────────────
+    // Zoom and restore Y simultaneously 
 
     private IEnumerator ZoomCameraAndRestoreY(
         float fromSize,
@@ -194,7 +194,7 @@ public class LevelStartCutscene : MonoBehaviour
         );
     }
 
-    // ── NPC looks left then right ─────────────────────────────────
+
 
     private IEnumerator NPCLookAround()
     {

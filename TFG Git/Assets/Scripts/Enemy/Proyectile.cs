@@ -8,9 +8,7 @@ public class Proyectile : MonoBehaviour
     private Vector3 _startPosition;
     private bool    _initialized = false;
  
-    /// <summary>
-    /// Called by EnemyBehaviour right after spawning.
-    /// </summary>
+
     public void Initialize(Vector2 direction, float speed, float maxDistance)
     {
         _direction     = direction;
@@ -19,7 +17,6 @@ public class Proyectile : MonoBehaviour
         _startPosition = transform.position;
         _initialized   = true;
  
-        // Detach from enemy so it moves freely in the scene
         transform.SetParent(null);
     }
  
@@ -29,7 +26,6 @@ public class Proyectile : MonoBehaviour
  
         transform.position += (Vector3)_direction * _speed * Time.deltaTime;
  
-        // Destroy after travelling max distance
         if (Vector3.Distance(_startPosition, transform.position) >= _maxDistance)
         {
             Debug.Log("[Proyectile] Max distance reached — destroying.");

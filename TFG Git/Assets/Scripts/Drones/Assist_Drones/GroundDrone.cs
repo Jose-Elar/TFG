@@ -49,7 +49,6 @@ public class GroundDrone : MonoBehaviour
             yield return null;
         }
  
-        // Arrived — wait then reveal the bridge
         yield return new WaitForSeconds(activationDelay);
  
         bridgeEvents.RevealBridge();

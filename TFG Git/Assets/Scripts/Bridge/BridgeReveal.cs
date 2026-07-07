@@ -63,12 +63,12 @@ public class BridgeReveal : MonoBehaviour
 
     private IEnumerator ProjectionRoutine()
     {
-        // Phase 1 — flicker on like a drone projection booting up
+        // Phase 1 
         yield return StartCoroutine(FlickerOn());
 
-        // Phase 2 — place tiles fast left to right
+        // Phase 2 
         tilemapRenderer.enabled = true;
-        tilemap.color = new Color(0.5f, 0.85f, 1f, 0.85f); // cyan tint while projected
+        tilemap.color = new Color(0.5f, 0.85f, 1f, 0.85f); 
 
         foreach (Vector3Int pos in _positions)
         {
@@ -76,14 +76,14 @@ public class BridgeReveal : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenTiles);
         }
 
-        // Phase 3 — collision goes on permanently, visual stays briefly
+        // Phase 3 
         tilemapCollider.enabled = true;
         Debug.Log("[BridgeReveal] Collision enabled.");
 
-        // Phase 4 — hold the visual for a moment
+        // Phase 4 
         yield return new WaitForSeconds(projectionDuration);
 
-        // Phase 5 — visual fades out quickly, collision stays
+        // Phase 5 
         yield return StartCoroutine(FadeOutVisual());
 
         Debug.Log("[BridgeReveal] Visual gone, collision remains.");
@@ -95,14 +95,14 @@ public class BridgeReveal : MonoBehaviour
 
         for (int i = 0; i < flickerCount; i++)
         {
-            // Place all tiles instantly at low alpha for flicker effect
+           
             foreach (Vector3Int pos in _positions)
                 tilemap.SetTile(pos, _tileData[pos]);
 
             tilemap.color = new Color(0.5f, 0.85f, 1f, i % 2 == 0 ? 0.4f : 0f);
             yield return new WaitForSeconds(flickerInterval);
 
-            // Clear tiles on off flicker
+            
             if (i % 2 != 0)
             {
                 foreach (Vector3Int pos in _positions)
@@ -110,7 +110,7 @@ public class BridgeReveal : MonoBehaviour
             }
         }
 
-        // Clear again so BuildRoutine places them fresh
+        
         foreach (Vector3Int pos in _positions)
             tilemap.SetTile(pos, null);
 
@@ -130,7 +130,7 @@ public class BridgeReveal : MonoBehaviour
             yield return null;
         }
 
-        // Visual completely gone but collision is still active
+        
         tilemapRenderer.enabled = false;
         tilemap.color = Color.white;
     }

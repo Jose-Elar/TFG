@@ -3,9 +3,9 @@ using UnityEngine;
 public class CloudMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 0.5f;
-    [SerializeField] private float resetDelay = 2f;        // seconds after leaving screen before reset
-    [SerializeField] private float randomYMin = -2f;       // min Y on reset
-    [SerializeField] private float randomYMax = 2f;        // max Y on reset
+    [SerializeField] private float resetDelay = 2f;       
+    [SerializeField] private float randomYMin = -2f;      
+    [SerializeField] private float randomYMax = 2f;       
 
     private Camera _cam;
     private float _screenRightEdge;
@@ -21,12 +21,9 @@ public class CloudMovement : MonoBehaviour
 
     void Update()
     {
-        // Move right
         transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
 
         UpdateScreenBounds();
-
-        // Check if fully off the right side
         if (transform.position.x > _screenRightEdge + 2f)
         {
             if (!_isOffScreen)
@@ -45,7 +42,7 @@ public class CloudMovement : MonoBehaviour
     private void ResetCloud()
     {
         // Teleport to left of screen with random Y
-        float newX = _screenLeftEdge - Random.Range(1f, 4f); // slightly off left edge
+        float newX = _screenLeftEdge - Random.Range(1f, 4f);
         float newY = Random.Range(randomYMin, randomYMax);
 
         transform.position = new Vector3(newX, newY, transform.position.z);

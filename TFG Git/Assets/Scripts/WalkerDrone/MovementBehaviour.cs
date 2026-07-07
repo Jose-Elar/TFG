@@ -13,7 +13,7 @@ public class MovementBehaviour : MonoBehaviour
     [SerializeField] public float moveSpeed = 2f;
 
     [Header("Detection")]
-    [SerializeField] private float rayDistance = 80f;
+    //[SerializeField] private float rayDistance = 80f;
     [Tooltip("Layers the obstacle raycast can hit. Exclude trigger-only layers like bridge zones.")]
     [SerializeField] private LayerMask obstacleLayer;
 
@@ -170,7 +170,7 @@ public class MovementBehaviour : MonoBehaviour
         if (_gapAhead)
         {
             _rb.linearVelocity = Vector2.zero;
-            _animator.SetBool("isWalking", false);             // ← idle at gap
+            _animator.SetBool("isWalking", false);            
             if (isJumpHole)
             {
                 _waitingToJump = true;
@@ -192,7 +192,7 @@ public class MovementBehaviour : MonoBehaviour
             else
             {
                 _rb.linearVelocity = Vector2.zero;
-                _animator.SetBool("isWalking", false);         // ← idle when stopped
+                _animator.SetBool("isWalking", false);        
             }
             return;
         }
@@ -200,7 +200,7 @@ public class MovementBehaviour : MonoBehaviour
         MoveTowardsWaypoint();
     }
 
-    // ── Waypoint logic ─────────────────────────────────────────────────────
+    //Waypoint logic 
 
     private Transform CurrentTarget => waypoints[_currentWaypointIndex];
 
@@ -226,7 +226,7 @@ public class MovementBehaviour : MonoBehaviour
         {
             _rb.linearVelocity      = Vector2.zero;
             _lastCheckpointPosition = CurrentTarget.position;
-            _animator.SetBool("isWalking", false);             // ← idle on arrival
+            _animator.SetBool("isWalking", false);            
 
             Debug.Log("[MovementBehaviour] Reached waypoint " + _currentWaypointIndex
                       + " (" + CurrentTarget.name + ")");
@@ -254,7 +254,7 @@ public class MovementBehaviour : MonoBehaviour
         if      (direction.x > 0) _sprite.flipX = false;
         else if (direction.x < 0) _sprite.flipX = true;
 
-        _animator.SetBool("isWalking", true);                  // ← walk while moving
+        _animator.SetBool("isWalking", true);             
     }
 
     public Vector3 GetLastCheckpointPosition()
@@ -264,7 +264,6 @@ public class MovementBehaviour : MonoBehaviour
         return new Vector3(pos.x, pos.y + 2f, pos.z);
     }
 
-    // ── Wander behaviour ───────────────────────────────────────────────────
 
     private void WanderBehaviour()
     {
@@ -272,7 +271,7 @@ public class MovementBehaviour : MonoBehaviour
         {
             case WanderState.Waiting:
                 _rb.linearVelocity = Vector2.zero;
-                _animator.SetBool("isWalking", false);         // ← idle while waiting
+                _animator.SetBool("isWalking", false);      
                 _wanderTimer -= Time.deltaTime;
 
                 if (_wanderTimer <= 0f)
@@ -290,7 +289,7 @@ public class MovementBehaviour : MonoBehaviour
                 if (clamped != _wanderDirection)
                 {
                     _rb.linearVelocity = Vector2.zero;
-                    _animator.SetBool("isWalking", false);     // ← idle when stopping
+                    _animator.SetBool("isWalking", false); 
                     _wanderState = WanderState.Waiting;
                     _wanderTimer = Random.Range(wanderWaitMin, wanderWaitMax);
                     break;
@@ -300,7 +299,7 @@ public class MovementBehaviour : MonoBehaviour
                 if      (_wanderDirection > 0) _sprite.flipX = false;
                 else if (_wanderDirection < 0) _sprite.flipX = true;
 
-                _animator.SetBool("isWalking", true);          // ← walk while wandering
+                _animator.SetBool("isWalking", true);        
 
                 transform.position = Vector2.MoveTowards(
                     transform.position,
@@ -312,7 +311,7 @@ public class MovementBehaviour : MonoBehaviour
                 if (Vector2.Distance(transform.position, _wanderTarget) < 0.05f)
                 {
                     _rb.linearVelocity = Vector2.zero;
-                    _animator.SetBool("isWalking", false);     // ← idle on wander arrival
+                    _animator.SetBool("isWalking", false);     
                     _wanderState = WanderState.Waiting;
                     _wanderTimer = Random.Range(wanderWaitMin, wanderWaitMax);
                 }
@@ -320,7 +319,7 @@ public class MovementBehaviour : MonoBehaviour
         }
     }
 
-    // ── Footsteps ─────────────────────────────────────────────────────────────
+
     public void HandleFootsteps(Vector3 currentPos)
     {
         _distance += Vector3.Distance(currentPos, _lastPos);
@@ -328,7 +327,6 @@ public class MovementBehaviour : MonoBehaviour
 
         if (_distance > 0.5f)
         {
-            // Don't restart the clip if it's still playing
             if (_footstepSource.isPlaying)
                 return;
 
@@ -377,7 +375,6 @@ public class MovementBehaviour : MonoBehaviour
         return direction;
     }
 
-    // ── Grounded check ─────────────────────────────────────────────────────
 
     private bool IsGrounded()
     {
@@ -394,7 +391,7 @@ public class MovementBehaviour : MonoBehaviour
         return center.collider != null || left.collider != null || right.collider != null;
     }
 
-    // ── Gap detection ──────────────────────────────────────────────────────
+
 
     private bool IsGapAhead(out bool isJumpHole)
     {

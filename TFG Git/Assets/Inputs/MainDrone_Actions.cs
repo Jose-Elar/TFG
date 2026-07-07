@@ -136,6 +136,15 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""7c46bd84-934f-400f-bd20-5e23054260fb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -237,6 +246,17 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""MainDrone_Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""36045012-4090-4402-ae91-39de7b83de0b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -250,6 +270,7 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
         m_Drone_Interact_Bridge = m_Drone.FindAction("Interact_Bridge", throwIfNotFound: true);
         m_Drone_Next_Text = m_Drone.FindAction("Next_Text", throwIfNotFound: true);
         m_Drone_MainDrone_Interact = m_Drone.FindAction("MainDrone_Interact", throwIfNotFound: true);
+        m_Drone_Quit = m_Drone.FindAction("Quit", throwIfNotFound: true);
     }
 
     ~@MainDrone_Actions()
@@ -335,6 +356,7 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Drone_Interact_Bridge;
     private readonly InputAction m_Drone_Next_Text;
     private readonly InputAction m_Drone_MainDrone_Interact;
+    private readonly InputAction m_Drone_Quit;
     /// <summary>
     /// Provides access to input actions defined in input action map "Drone".
     /// </summary>
@@ -366,6 +388,10 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Drone/MainDrone_Interact".
         /// </summary>
         public InputAction @MainDrone_Interact => m_Wrapper.m_Drone_MainDrone_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "Drone/Quit".
+        /// </summary>
+        public InputAction @Quit => m_Wrapper.m_Drone_Quit;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -407,6 +433,9 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
             @MainDrone_Interact.started += instance.OnMainDrone_Interact;
             @MainDrone_Interact.performed += instance.OnMainDrone_Interact;
             @MainDrone_Interact.canceled += instance.OnMainDrone_Interact;
+            @Quit.started += instance.OnQuit;
+            @Quit.performed += instance.OnQuit;
+            @Quit.canceled += instance.OnQuit;
         }
 
         /// <summary>
@@ -433,6 +462,9 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
             @MainDrone_Interact.started -= instance.OnMainDrone_Interact;
             @MainDrone_Interact.performed -= instance.OnMainDrone_Interact;
             @MainDrone_Interact.canceled -= instance.OnMainDrone_Interact;
+            @Quit.started -= instance.OnQuit;
+            @Quit.performed -= instance.OnQuit;
+            @Quit.canceled -= instance.OnQuit;
         }
 
         /// <summary>
@@ -508,5 +540,12 @@ public partial class @MainDrone_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMainDrone_Interact(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Quit" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnQuit(InputAction.CallbackContext context);
     }
 }

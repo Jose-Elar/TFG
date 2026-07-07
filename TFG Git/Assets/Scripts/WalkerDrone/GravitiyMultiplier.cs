@@ -3,7 +3,7 @@ using UnityEngine;
 public class GravitiyMultiplier : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D targetRigidbody;
-    [SerializeField] private float gravityMultiplier = 2f;   // ← añadido
+    [SerializeField] private float gravityMultiplier = 2f;  
 
     private float _originalGravityScale;
     private bool _hasDoubled = false;
@@ -23,7 +23,7 @@ public class GravitiyMultiplier : MonoBehaviour
 
         if (collision.rigidbody == targetRigidbody)
         {
-            targetRigidbody.gravityScale = _originalGravityScale * gravityMultiplier;   // ← usa la variable
+            targetRigidbody.gravityScale = _originalGravityScale * gravityMultiplier;   
             _hasDoubled = true;
         }
     }

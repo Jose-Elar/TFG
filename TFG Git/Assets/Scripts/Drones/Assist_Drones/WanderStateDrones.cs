@@ -15,8 +15,7 @@ public class WanderStateDrones : MonoBehaviour
     [SerializeField] private BoxCollider2D zoneCollider;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
-    private Animator animator;                          // ← added
-
+    private Animator animator;                   
     [Header("Tilt")]
     [SerializeField] private float maxTiltAngle = 15f;
     [SerializeField] private float tiltSpeed = 8f;
@@ -28,7 +27,7 @@ public class WanderStateDrones : MonoBehaviour
         rb.freezeRotation = true;
 
         sprite   = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();            // ← added
+        animator = GetComponent<Animator>();          
 
         zoneCollider = GetComponentInParent<BoxCollider2D>();
         if (zoneCollider == null)
@@ -45,7 +44,7 @@ public class WanderStateDrones : MonoBehaviour
         if (isWaiting || isPaused)
         {
             ApplyTilt(0f);
-            animator.SetFloat("velocityX", 0f);        // ← added: returns to idle
+            animator.SetFloat("velocityX", 0f);       
             return;
         }
 
@@ -64,11 +63,9 @@ public class WanderStateDrones : MonoBehaviour
             targetPosition,
             moveSpeed * Time.deltaTime
         );
-
-        // Pass horizontal direction to Animator           ← added
+    
         animator.SetFloat("velocityX", direction.x);
 
-        // Tilt based on horizontal direction
         ApplyTilt(direction.x * maxTiltAngle);
     }
 

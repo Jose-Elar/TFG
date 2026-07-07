@@ -28,18 +28,17 @@ public class EnemyBehaviour : MonoBehaviour
 
     private float _shootTimer = 0f;
     private bool  _playerInRange = false;
-    private SpriteRenderer _sprite;              // ← added
+    private SpriteRenderer _sprite;           
 
     void Awake()
     {
-        _sprite = GetComponent<SpriteRenderer>(); // ← added
+        _sprite = GetComponent<SpriteRenderer>(); 
     }
 
     void Update()
     {
         if (player == null) return;
 
-        // Flip sprite to face player                          ← added
         if (_sprite != null)
             _sprite.flipX = player.position.x < transform.position.x;
 

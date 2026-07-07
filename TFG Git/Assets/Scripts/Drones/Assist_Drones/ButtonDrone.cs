@@ -7,7 +7,7 @@ public class ButtonDrone : MonoBehaviour
 
 
     [SerializeField] private float activationDistance = 1.5f;
-    [SerializeField] private float activationDelay = 1f; // ← delay before firing event
+    [SerializeField] private float activationDelay = 1f; 
 
     private WanderStateDrones wander;
     private bool isOnMission = false;
@@ -40,7 +40,6 @@ public class ButtonDrone : MonoBehaviour
 
         Vector2 buttonPos = button.transform.position;
 
-        // Move towards button
         while (Vector2.Distance(transform.position, buttonPos) > activationDistance)
         {
             transform.position = Vector2.MoveTowards(
@@ -51,13 +50,11 @@ public class ButtonDrone : MonoBehaviour
             yield return null;
         }
 
-        // Drone is close — wait before activating
+    
         yield return new WaitForSeconds(activationDelay);
-
-        // Now activate — color stays permanently since isActivated blocks future presses
+        
         button.SetActivated(true);
 
-        // Resume wander
         wander.ResumeWander();
         isOnMission = false;
     }

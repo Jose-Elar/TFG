@@ -6,7 +6,7 @@ public class LampStateLight : MonoBehaviour
     public enum LightState { Base,Flickering, FullyOn, Alarm }
 
     [Header("Light Reference")]
-    [SerializeField] private Light2D targetLight;   // ← añadido, asignar desde el Inspector
+    [SerializeField] private Light2D targetLight;
 
     [Header("State")]
     [SerializeField] private LightState currentState = LightState.Flickering;
@@ -57,7 +57,6 @@ public class LampStateLight : MonoBehaviour
         }
     }
 
-    // ── Estado 1 — Flicker aleatorio ───────────────────────────────
     private void UpdateFlickering()
     {
         targetLight.intensity = 0.98f;
@@ -70,14 +69,14 @@ public class LampStateLight : MonoBehaviour
         );
     }
 
-    // ── Estado 2 — Encendido fijo ───────────────────────────────────
+
     private void UpdateFullyOn()
     {
         targetLight.color = _originalColor;
         targetLight.intensity = fullyOnIntensity;
     }
 
-    // ── Estado 3 — Alarma roja pulsante ─────────────────────────────
+
     private void UpdateAlarm()
     {
         targetLight.color = alarmColor;

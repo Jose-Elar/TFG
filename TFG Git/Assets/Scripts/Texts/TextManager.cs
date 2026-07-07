@@ -9,7 +9,7 @@ public class TextManager : MonoBehaviour
 {
     public static TextManager Instance;
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
 [UnityEditor.InitializeOnLoadMethod]
 private static void ResetStaticInstance()
 {
@@ -28,8 +28,8 @@ private static void ResetStaticInstance()
     [SerializeField] private TMP_Text dialogueText;
 
     [Header("Continue Indicator")]
-    [SerializeField] private GameObject continueIndicator;   // ← added: the extra text/icon
-    [SerializeField] private float flickerInterval = 0.5f;   // ← added: time on/off
+    [SerializeField] private GameObject continueIndicator;   
+    [SerializeField] private float flickerInterval = 0.5f;   
     private Coroutine flickerCoroutine;
 
     [Header("Settings")]
@@ -83,7 +83,7 @@ private static void ResetStaticInstance()
         dialoguePanel.SetActive(false);
 
         if (continueIndicator != null)
-            continueIndicator.SetActive(false);   // ← added
+            continueIndicator.SetActive(false);   
     }
 
     private void OnEnable()
@@ -105,8 +105,7 @@ private static void ResetStaticInstance()
     private void LoadDialogueDatabase()
     {
         string path = Path.Combine(
-            Application.dataPath,
-            "TextFiles",
+            Application.streamingAssetsPath,
             "TextTrys.json"
         );
 
@@ -166,7 +165,7 @@ private static void ResetStaticInstance()
         dialogueStarting = true;
 
         dialogueText.text = "";
-        HideContinueIndicator();   // ← added
+        HideContinueIndicator();   
 
         yield return new WaitForSeconds(panelOpenDelay);
 
@@ -192,7 +191,7 @@ private static void ResetStaticInstance()
 
             isTyping = false;
 
-            ShowContinueIndicator();   // ← added: line finished early via skip
+            ShowContinueIndicator();   
 
             return;
         }
@@ -215,7 +214,7 @@ private static void ResetStaticInstance()
             StopCoroutine(typingCoroutine);
         }
 
-        HideContinueIndicator();   // ← added: hide while typing new line
+        HideContinueIndicator();  
 
         typingCoroutine =
             StartCoroutine(
@@ -242,7 +241,7 @@ private static void ResetStaticInstance()
 
         isTyping = false;
 
-        ShowContinueIndicator();   // ← added: line finished naturally
+        ShowContinueIndicator();   
     }
 
     private void EndDialogue()
@@ -251,7 +250,7 @@ private static void ResetStaticInstance()
         dialogueText.text = "";
         dialoguePanel.SetActive(false);
 
-        HideContinueIndicator();   // ← added
+        HideContinueIndicator();   
 
         OnDialogueEnded?.Invoke();
     }

@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelEndSequence : MonoBehaviour
 {
+    [Header("Assist Drone")]
+    [SerializeField] private Rigidbody2D assistDroneRb;
+
     [Header("References")]
     [SerializeField] private MovementBehaviour npc;
     [SerializeField] private Transform         cliffEdge;
@@ -62,7 +65,7 @@ public class LevelEndSequence : MonoBehaviour
         npc.OnLastWaypointReached -= OnLastWaypointReached;
         npc.enabled = false;
 
-        // ── Decide la rama según la escena activa ──────────────────
+        // Decide la rama según la escena activa 
         string currentScene = SceneManager.GetActiveScene().name;
 
         if (currentScene == finalLevelSceneName)
@@ -71,9 +74,8 @@ public class LevelEndSequence : MonoBehaviour
             StartCoroutine(Level1EndSequence());
     }
 
-    // ════════════════════════════════════════════════════════════════
-    // LEVEL 1 — Caminar al borde → diálogo → salto → transición
-    // ════════════════════════════════════════════════════════════════
+
+   
 
     private IEnumerator Level1EndSequence()
     {
@@ -88,7 +90,6 @@ public class LevelEndSequence : MonoBehaviour
         yield return StartCoroutine(JumpRoutine());
     }
 
-    // ── Caminar hasta el borde ────────────────────────────────────
     private IEnumerator WalkToEdge()
     {
         while (true)
@@ -118,9 +119,14 @@ public class LevelEndSequence : MonoBehaviour
         }
     }
 
-    // ── Salto al precipicio ───────────────────────────────────────
     private IEnumerator JumpRoutine()
     {
+    if (assistDroneRb != null)
+    {
+        assistDroneRb.transform.SetParent(null);
+        assistDroneRb.bodyType = RigidbodyType2D.Static;
+    }
+
         yield return new WaitForSeconds(0.5f);
 
         _rb.bodyType     = RigidbodyType2D.Dynamic;
@@ -136,7 +142,7 @@ public class LevelEndSequence : MonoBehaviour
         Debug.Log("[LevelEndSequence] NPC jumped off cliff.");
     }
 
-    // ── Comprueba si el NPC salió de pantalla ────────────────────
+
     private void CheckOffScreen()
     {
         Camera cam = Camera.main;
@@ -165,7 +171,7 @@ public class LevelEndSequence : MonoBehaviour
 
     private IEnumerator Level2EndSequence()
     {
-        // Phase 1 — Activar sonido de alarma
+        // Phase 1 
         if (alarmAudioSource != null)
         {
             Debug.Log("[LevelEndSequence] Playing alarm sound.");
@@ -173,7 +179,7 @@ public class LevelEndSequence : MonoBehaviour
         }
 
 
-        // Phase 2 — Cambiar todas las lámparas a estado Alarm
+        // Phase 2 
         foreach (LampStateLight lamp in alarmLamps)
         {
             Debug.Log("No Funciona" + lamp.name);
@@ -185,17 +191,17 @@ public class LevelEndSequence : MonoBehaviour
 
         }
 
-        // Phase 3 — Disparar el diálogo final y esperar a que termine
+        // Phase 3
         bool dialogueDone = false;
         TextManager.Instance.OnDialogueEnded += () => dialogueDone = true;
         TextManager.Instance.StartDialogue(endDialogueId);
 
         yield return new WaitUntil(() => dialogueDone);
 
-        // Phase 4 — Esperar finalSceneDelay segundos
+        // Phase 4 
         yield return new WaitForSeconds(finalSceneDelay);
 
-        // Phase 5 — Cargar la escena final
+        // Phase 5 
         SceneTransition.Instance.LoadScene(finalSceneName);
 
         Debug.Log("[LevelEndSequence] Final scene loaded.");

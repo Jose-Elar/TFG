@@ -11,8 +11,8 @@ public class ButtonBehaviour : MonoBehaviour
     [SerializeField] private Material materialRed;
     [SerializeField] private Material materialGreen;
 
-    private bool droneInRange = false;      // main drone in range
-    private bool assistDroneInRange = false;// assist drone in range
+    private bool droneInRange = false;     
+    private bool assistDroneInRange = false;
 
     private bool isActivated = false;
 
@@ -24,7 +24,7 @@ public class ButtonBehaviour : MonoBehaviour
         OnButtonPressed?.Invoke();
     }
 
-    // Called by ButtonDrone when it arrives
+   
     public void SetActivated(bool activated)
     {
         isActivated = activated;

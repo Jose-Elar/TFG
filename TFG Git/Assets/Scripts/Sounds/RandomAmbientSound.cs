@@ -31,7 +31,6 @@ public class RandomAmbientSound : MonoBehaviour
 
     private void TryPlaySound()
     {
-        // Don't do anything if it's already playing
         if (audioSource.isPlaying) return;
 
         // Roll the dice

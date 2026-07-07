@@ -6,12 +6,12 @@ public class WalkerBatteryLink : MonoBehaviour
     [Header("Battery Settings")]
     [SerializeField] private float batteryMin   = 0.1f;
     [SerializeField] private float batteryMax    = 1f;
-    [SerializeField] private float chargeRate    = 0.3f;  // per second, while drone is inside
-    [SerializeField] private float drainRate     = 0.15f; // per second, while drone is outside
+    [SerializeField] private float chargeRate    = 0.3f;  
+    [SerializeField] private float drainRate     = 0.15f; 
 
     [Header("Detection")]
     [SerializeField] private float detectionRadius = 2f;
-    [SerializeField] private Transform droneTransform; // arrastrar el Exploration_Drone aquí
+    [SerializeField] private Transform droneTransform; 
 
     [Header("References")]
     [SerializeField] private Light2D walkerLight;
@@ -74,7 +74,6 @@ public class WalkerBatteryLink : MonoBehaviour
         Debug.Log("[WalkerBatteryLink] Low battery warning triggered.");
     }
 
-    // ── Visual debug en el editor ───────────────────────────────────
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;

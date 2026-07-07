@@ -16,6 +16,6 @@ public class LayerColorTint : MonoBehaviour
             sr.color = tintColor;
     }
 
-    // Lets you preview in editor without hitting play
+
     void OnValidate() => ApplyTint();
 }

@@ -1,11 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-/// <summary>
-/// Camera follows the player horizontally at all times.
-/// Vertically, it waits a moment after the player leaves the screen,
-/// pauses the game, then pans to reveal the next area.
-/// </summary>
+
 public class CameraMovement : MonoBehaviour
 {
     [Header("Target")]
@@ -23,14 +19,14 @@ public class CameraMovement : MonoBehaviour
     [Header("Edge Padding")]
     public float edgePadding = 0.5f;
 
-    // ── internals ──────────────────────────────────────────────────────────
+
     private Camera _cam;
     private bool _isPanning = false;
     private bool _waitingToStart = false;
     private Vector3 _panTarget;
     private Coroutine _delayCoroutine;
 
-    // ── Unity lifecycle ────────────────────────────────────────────────────
+
 
     void Awake()
     {
@@ -57,7 +53,7 @@ public class CameraMovement : MonoBehaviour
         if (target == null)
             return;
 
-        // Continuous horizontal follow
+
         if (followX)
         {
             Vector3 pos = transform.position;
@@ -71,7 +67,6 @@ public class CameraMovement : MonoBehaviour
             transform.position = pos;
         }
 
-        // Vertical pan movement
         if (!_isPanning)
             return;
 
@@ -89,7 +84,6 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
-    // ── helpers ────────────────────────────────────────────────────────────
 
     Vector2 GetExitDirection()
     {
@@ -141,7 +135,6 @@ public class CameraMovement : MonoBehaviour
         _isPanning = true;
     }
 
-    // ── pause / resume ─────────────────────────────────────────────────────
 
     void PauseGame()
     {
@@ -154,7 +147,6 @@ public class CameraMovement : MonoBehaviour
         Debug.Log("[CameraMovement] Game resumed.");
     }
 
-    // ── debug visualisation ────────────────────────────────────────────────
 
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()

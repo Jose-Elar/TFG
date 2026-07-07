@@ -6,20 +6,20 @@ public class LabConsoleInteractable : MonoBehaviour, IInteractable
     [SerializeField] private MovementBehaviour walkerMovement;
 
     [Header("Dialogue")]
-    [SerializeField] private string arrivalDialogueId;     // primer texto, al llegar el Walker
-    [SerializeField] private string activationDialogueId;  // segundo texto, al activar la consola
+    [SerializeField] private string arrivalDialogueId;    
+    [SerializeField] private string activationDialogueId;  
 
     [Header("Audio")]
     [SerializeField] private AudioSource lightsOnAudioSource;
     [SerializeField] private AudioSource lightsFlickerAudioSource;
 
     [Header("Lamps to Activate")]
-    [SerializeField] private LampStateLight[] lampsToActivate;   // ← añadido
+    [SerializeField] private LampStateLight[] lampsToActivate;  
 
     private bool _walkerArrived  = false;
     private bool _activated      = false;
 
-    // ── Detección del Walker llegando a la zona ─────────────────────
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!_walkerArrived && other.gameObject == walkerMovement.gameObject)
@@ -49,7 +49,6 @@ public class LabConsoleInteractable : MonoBehaviour, IInteractable
         drone?.SetNearbyInteractable(null);
     }
 
-    // ── Llamado por DroneMovement al pulsar E ───────────────────────
     public void Activate()
     {
         if (_activated) return;
@@ -65,7 +64,6 @@ public class LabConsoleInteractable : MonoBehaviour, IInteractable
         }
 
 
-        // ── Activar las lámparas y pasarlas a FullyOn ────────────────
         foreach (LampStateLight lamp in lampsToActivate)
         {
             if (lamp != null)

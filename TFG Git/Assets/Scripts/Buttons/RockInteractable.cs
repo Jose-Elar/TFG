@@ -24,7 +24,7 @@ public class RockInteractable : MonoBehaviour, IInteractable
     [SerializeField] private BoxCollider2D doorCollider;
 
     [Header("Extra Collider")]
-    [SerializeField] private BoxCollider2D extraCollider;   // ← added
+    [SerializeField] private BoxCollider2D extraCollider;   
 
     private bool _activated = false;
 
@@ -61,34 +61,34 @@ public class RockInteractable : MonoBehaviour, IInteractable
 
     private IEnumerator ActivateSequence()
     {
-        // Phase 1 — Gate mechanism sound
+        // Phase 1
         if (gateMechanismSource != null)
             gateMechanismSource.Play();
 
-        // Phase 2 — Switch both animations at the same time
+        // Phase 2 
         _computerAnimator.SetBool(PARAM_ACTIVATE2, true);
 
         if (doorAnimator != null)
             doorAnimator.SetBool(PARAM_ACTIVATE1, true);
 
-        // Phase 2.5 — Disable door collider while it opens
+        // Phase 2.5 
         if (doorCollider != null)
             doorCollider.enabled = false;
 
-        // Phase 2.6 — Disable extra collider immediately
+        // Phase 2.6 
         if (extraCollider != null)
-            extraCollider.enabled = false;   // ← added
+            extraCollider.enabled = false;  
 
-        // Phase 3 — Turn off idle light
+        // Phase 3 
         idleLight.enabled = false;
 
-        // Phase 4 — Flicker deactivated light
+        // Phase 4 
         yield return StartCoroutine(FlickerLight(deactivatedLight));
 
-        // Phase 5 — Stay on permanently
+        // Phase 5 
         deactivatedLight.enabled = true;
 
-        // Phase 6 — Wait for door animation to finish, then re-enable collider
+        // Phase 6 
         if (doorAnimator != null && doorCollider != null)
         {
             float doorAnimLength = GetAnimationLength(doorAnimator, doorAnimationClipName);
@@ -119,6 +119,6 @@ public class RockInteractable : MonoBehaviour, IInteractable
             if (clip.name == clipName)
                 return clip.length;
         }
-        return 1f; // fallback if not found
+        return 1f; 
     }
 }

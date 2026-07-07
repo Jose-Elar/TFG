@@ -1985,7 +1985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 783167096313553200, guid: 435c50c309eb0ce48a6f6208f2580289, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 41.94
+      value: 46.05
       objectReference: {fileID: 0}
     - target: {fileID: 783167096313553200, guid: 435c50c309eb0ce48a6f6208f2580289, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19284,7 +19284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 783167096313553200, guid: 435c50c309eb0ce48a6f6208f2580289, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.126
+      value: 31.454
       objectReference: {fileID: 0}
     - target: {fileID: 783167096313553200, guid: 435c50c309eb0ce48a6f6208f2580289, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21919,7 +21919,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5704524288552303536, guid: c1becce93eec2e14eb4f69089b2dcb08, type: 3}
       propertyPath: m_Volume
-      value: 0.254
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704524288552303536, guid: c1becce93eec2e14eb4f69089b2dcb08, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6093555384965980615, guid: c1becce93eec2e14eb4f69089b2dcb08, type: 3}
       propertyPath: m_SortingOrder
@@ -31287,15 +31291,27 @@ PrefabInstance:
       objectReference: {fileID: 1208896769}
     - target: {fileID: 3151165327803163728, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
       propertyPath: m_Size.y
-      value: 2.0039577
+      value: 1.6279495
       objectReference: {fileID: 0}
     - target: {fileID: 3151165327803163728, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
       propertyPath: m_Offset.y
-      value: -0.05235046
+      value: -0.24035469
       objectReference: {fileID: 0}
     - target: {fileID: 3434195210597697457, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
       propertyPath: m_SortingOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570726890817437657, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
+      propertyPath: moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570726890817437657, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
+      propertyPath: maxWaitTime
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570726890817437657, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
+      propertyPath: minWaitTime
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7808530075723208872, guid: adef7e5492120f9468c8cb2321cd8bdd, type: 3}
       propertyPath: m_Name

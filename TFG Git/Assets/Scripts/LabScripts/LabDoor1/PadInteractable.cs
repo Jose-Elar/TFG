@@ -25,7 +25,6 @@ public class PadInteractable : MonoBehaviour, IInteractable
 
     private bool _activated = false;
 
-    // ── Proximity detection ───────────────────────────────────────
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Main_Drone")) return;
@@ -40,7 +39,7 @@ public class PadInteractable : MonoBehaviour, IInteractable
         drone?.SetNearbyInteractable(null);
     }
 
-    // ── Called by DroneMovement on input ─────────────────────────
+    //Called by DroneMovement on input
     public void Activate()
     {
         if (_activated) return;
@@ -55,14 +54,13 @@ public class PadInteractable : MonoBehaviour, IInteractable
         if (doorLight != null)
             doorLight.enabled = false;
 
-        // ── Detener completamente todos los audio sources indicados ──
         foreach (AudioSource source in audioSourcesToStop)
         {
             if (source != null)
                 source.Stop();
         }
 
-        // ── Activar el script de cada lámpara y pasarlas a Flickering ──
+   
         foreach (LampStateLight lamp in lampsToActivate)
         {
             if (lamp != null)
@@ -74,8 +72,6 @@ public class PadInteractable : MonoBehaviour, IInteractable
 
         if (audioSourceToPlay != null)
             audioSourceToPlay.Play();
-
-        //if (globalLight != null) globalLight.intensity = 0f;
 
         if (droneLight != null) droneLight.intensity = 0.1f;
 

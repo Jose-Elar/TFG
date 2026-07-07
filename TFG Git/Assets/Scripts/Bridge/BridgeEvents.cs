@@ -10,7 +10,7 @@ public class BridgeEvents : MonoBehaviour
 
     [Header("Indicator Light")]
     [SerializeField] private Light2D indicatorLight;
-    [SerializeField] private float pulseSpeed = 1f;  // velocidad de la transición suave
+    [SerializeField] private float pulseSpeed = 1f; 
 
     private bool _lightDeactivated = false;
 
@@ -22,7 +22,7 @@ public class BridgeEvents : MonoBehaviour
     {
         if (_lightDeactivated || indicatorLight == null) return;
 
-        // Oscila suavemente entre 0 y 1 usando una onda senoidal
+   
         indicatorLight.intensity = (Mathf.Sin(Time.time * pulseSpeed * Mathf.PI) + 1f) / 2f;
     }
 

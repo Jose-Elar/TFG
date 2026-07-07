@@ -23,7 +23,7 @@ public class DroneHealth : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.collider.CompareTag("Proyectile")) return;
-        Destroy(collision.gameObject); // Destroy the projectile on hit
+        Destroy(collision.gameObject); 
         TakeHit();
     }
 
@@ -43,7 +43,7 @@ public class DroneHealth : MonoBehaviour
 
     private void Respawn()
     {
-        // Stop all momentum before teleporting
+       
         if (_rb != null)
             _rb.linearVelocity = Vector2.zero;
 
@@ -54,8 +54,6 @@ public class DroneHealth : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("[DroneHealth] HP reached 0 — Game Over.");
-
-        // TODO: replace with your game over logic (load scene, show screen, etc.)
         Time.timeScale = 0f;
         Application.Quit();
     }

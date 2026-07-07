@@ -26,7 +26,7 @@ public class MenuNPC : MonoBehaviour
 
     [Header("Sonidos")]
     private AudioSource _footstepSource;
-    //Trancking the distancia de andado para sonidos de pasos
+
     private Vector3 _lastPos;
     private float _distance;
 
@@ -78,7 +78,6 @@ public class MenuNPC : MonoBehaviour
         }
     }
 
-    // ── Called by the Start button ────────────────────────────────
     public void OnStartPressed()
     {
         Debug.Log("[MenuNPC] Start button pressed, transitioning NPC.");
@@ -88,7 +87,6 @@ public class MenuNPC : MonoBehaviour
         _animator.SetBool(ANIM_WALKING, false);
     }
 
-// ── Walk to cliff edge ────────────────────────────────────────
 private void WalkToEdge()
 {
     if (cliffEdge == null) return;
@@ -116,21 +114,20 @@ private void WalkToEdge()
         _animator.SetBool(ANIM_WALKING, false);
 
         // Stop walking, play dialogue, jump after
-        _state = NPCState.WaitingForDialogue;               // ← new state
+        _state = NPCState.WaitingForDialogue;          
 
         TextManager.Instance.OnDialogueEnded += OnEdgeDialogueFinished;
         TextManager.Instance.StartDialogue("startingGame_message");
     }
 }
 
-// ── Called when edge dialogue finishes ───────────────────────
+
 private void OnEdgeDialogueFinished()
 {
     TextManager.Instance.OnDialogueEnded -= OnEdgeDialogueFinished;
     StartCoroutine(JumpRoutine());
 }
 
-// ── Jump off cliff ────────────────────────────────────────────
 private IEnumerator JumpRoutine()
 {
     Debug.Log("[MenuNPC] Jump routine started.");
@@ -147,7 +144,6 @@ private IEnumerator JumpRoutine()
     _animator.SetBool(ANIM_JUMPING, true);
 }
 
-    // ── Check if off screen then transition ──────────────────────
     private void CheckOffScreen()
     {
         Camera cam = Camera.main;
@@ -171,10 +167,9 @@ private IEnumerator JumpRoutine()
     private IEnumerator TransitionRoutine()
     {
         yield return new WaitForSeconds(offScreenDelay);
-        SceneTransition.Instance.LoadScene(gameSceneName); // ← uses SceneTransition
+        SceneTransition.Instance.LoadScene(gameSceneName); 
     }
 
-    // ── Wander behaviour ──────────────────────────────────────────
     private void WanderBehaviour()
     {
         switch (_wanderState)
@@ -256,7 +251,6 @@ private IEnumerator JumpRoutine()
 
         if (_distance > 0.5f)
         {
-            //if (_footstepSource.isPlaying) return;
             _footstepSource.Play();
             _distance = 0f;
         }

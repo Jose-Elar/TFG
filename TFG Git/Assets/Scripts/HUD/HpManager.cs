@@ -17,7 +17,6 @@ public class HpManager : MonoBehaviour
     {
         currentHp = droneHealth.getCurrentHp();
 
-        // Only update visuals when HP actually changes
         if (currentHp == _lastHp) return;
         _lastHp = currentHp;
 
